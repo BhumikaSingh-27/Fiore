@@ -1,0 +1,104 @@
+.login-page {
+    box-shadow: 0 4px 8px 8px var(--secondary-color);
+    border-radius: 0.5rem;
+    position: absolute;
+    width: 525px;
+    padding: 2rem;
+    left: 500px;
+    top: 100px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sign-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 8px var(--secondary-color);
+    border-radius: 0.5rem;
+    width: 525px;
+    height: 650px;
+    position: absolute;
+    left: 500px;
+}
+
+.login-page h3 {
+    font-size: 1.5rem;
+}
+
+.login-element {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+}
+
+.input-element {
+    height: 40px;
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+    margin: 10px 0px 10px 0px;
+    padding: 0px 20px 0px 20px;
+    font-weight: 400px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+
+}
+
+
+.login-btn {
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    padding: 1rem 0.5rem;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    flex-grow: 1
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.link:hover {
+    color: black
+}
+
+a {
+    color: var(--primary-color)
+}
+
+a:hover {
+    color: blue;
+}
+
+label {
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.password-icon {
+    position: relative;
+    bottom: 2.5rem;
+    left: 22rem;
+    display: inline-block;
+    width: 20px;
+}
+
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: baseline;
+}
