@@ -1,0 +1,89 @@
+.checkout-container {
+    /* border: 2px solid black; */
+    width: 500px;
+    padding: 2rem;
+    border-radius: 0.7rem;
+    box-shadow: 2px 2px 4px 2px var(--secondary-color);
+}
+
+.container-margin {
+    margin-bottom: 0.5rem;
+    margin-top: 0px;
+    
+}
+
+.checkout-container h3 {
+    padding: 0.5rem 0rem;
+}
+
+.container-margin h3{
+    padding:0px;
+    margin-top: 0px;
+}
+.checkout-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.checkout-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.start {
+    align-items: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.address {
+    font-size: 12px;
+}
+
+.checkout {
+    font-size: 1.2rem;
+}
+
+.checkout:hover {
+    color: var(--secondary-color);
+}
+
+
+/* styles in checkout address */
+.address-container {
+    padding: 1rem;
+    box-shadow: 2px 2px 4px 2px var(--secondary-color);
+}
+
+.address-bar {
+    display: flex;
+    gap: 10px;
+    font-weight: normal;
+}
+
+
+
+/* style od Checkout component */
+
+.show-checkout-container {
+    display: flex;
+    gap: 10rem;
+}
+
+.checkout-address-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-checkout-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+
+}
+
+.checkout-body {
+    margin-top: 2rem;
+}
