@@ -146,11 +146,18 @@
 .product-price-details {
     padding: 0.5rem;
     display: flex;
+    gap:10px;
 
 }
 
 /* text line through in card */
 .cross-text {
     text-decoration: line-through;
-    padding-left: 0.4rem;
+    color: gray;
+    font-size: 1.5rem;
+
+}
+.product-price-details span {
+    color: var(--green);
+    padding-top: 0.5rem;
 }

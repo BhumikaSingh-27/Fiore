@@ -9,16 +9,16 @@ export const products = [
   {
     _id: uuid(),
     name: "You Can WIN",
-    rating: "Shiv Khera",
+    rating: "2",
     price: "5000",
     categoryName: "Roses",
     image:
-      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684396315/NegProjects/E-commerce/Roses/rose_main_g3oej0.avif",
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392267/NegProjects/E-commerce/Roses/rose3_yy3y54.avif",
   },
   {
     _id: uuid(),
     name: "You are Winner",
-    rating: "Junaid Qureshi",
+    rating: "4",
     price: "3000",
     categoryName: "Lilies",
     image:
@@ -27,7 +27,7 @@ export const products = [
   {
     _id: uuid(),
     name: "Think and Grow Rich",
-    rating: "Shiv Khera",
+    rating: "5",
     price: "1000",
     categoryName: "Orchids",
     image:

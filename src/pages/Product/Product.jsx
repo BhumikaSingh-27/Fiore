@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import "./Product.css";
@@ -6,16 +6,21 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../Home/components/Footer";
 
 const Product = () => {
+  const [data, setData] = useState([]);
 
-    useEffect(
-        (async()=>{
-            try{
-
-            }catch(e){
-                console.log(e)
-            }
-})()
-,[])
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("/api/products");
+        const dt = await response.json();
+        setData(dt.products);
+        // console.log(dt.products);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+  console.log("inside product", data);
   return (
     <>
       <Navbar />
@@ -24,8 +29,9 @@ const Product = () => {
           <Filter />
         </div>
         <div className="product-list">
-          <ProductCard />
-          <ProductCard />
+          {data.map((item) => (
+            <ProductCard item={item} />
+          ))}
         </div>
       </div>
       <footer>
