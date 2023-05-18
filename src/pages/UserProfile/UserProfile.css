@@ -50,20 +50,64 @@
 }
 
 /* styles in Address Form */
-.form-address{
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-address {
     display: flex;
     flex-direction: column;
-    width:500px;
-    height: 100vh;
-    border: 1px solid black;
+    width: fit-content;
     align-items: center;
     padding: 2rem;
-    justify-content: center;
-
-    
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 5px 6px var(--secondary-color);
+    gap: 1rem
 }
-.input-body{
+
+
+.input-body {
     display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: center;
+
+}
+
+.input-body input {
+    margin: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    border-color: var(--secondary-color);
+
+}
+
+.input-body input:hover {
+    border-color: gray;
+}
+
+
+.button-div {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.button-div button {
+    padding: 0.5em 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.save-btn:hover {
+    background-color: var(--green);
+    color: white
+}
+
+.dummy-btn:hover {
+    background-color: var(--secondary-color);
 }
