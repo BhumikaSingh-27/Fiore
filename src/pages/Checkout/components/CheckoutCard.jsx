@@ -1,5 +1,5 @@
 import React from "react";
-import "./checkout.css";
+import "./Checkout.css";
 
 const CheckoutCard = () => {
   return (

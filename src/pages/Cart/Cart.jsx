@@ -1,8 +1,8 @@
 import React from "react";
 import CartPrice from "./components/CartPrice";
 import CartProduct from "./components/CartProduct";
-
 import "./Cart.css";
+
 const Cart = () => {
   return (
     <div>

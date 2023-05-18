@@ -1,6 +1,6 @@
 import React from "react";
-import WishlistCart from "./component/WishlistCart";
-import "./component/Wishlist.css";
+import WishlistCart from "./components/WishlistCart";
+import "./components/Wishlist.css";
 
 const Wishlist = () => {
   return (

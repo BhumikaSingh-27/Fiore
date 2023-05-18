@@ -4,6 +4,7 @@
     width: 300px;
     height: 800px;
     border-right: 1px solid black;
+
     padding: 1rem;
     justify-content: flex-start;
 }
@@ -11,19 +12,16 @@
 .filter-component {
     display: flex;
     justify-content: space-between;
+    margin: 1rem;
 }
 
-/* 
-.filter-flex{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-} */
+
 
 .filter-price {
     display: flex;
     justify-content: space-around;
     gap: 3rem;
+    margin: 1rem;
 }
 
 .filter-price input {
@@ -34,6 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: 1rem;
 }
 
 .filter-category h4 {
@@ -44,6 +43,7 @@
 .filter-category-name {
     display: flex;
     flex-direction: column;
+    align-items: baseline;
 
 }
 
@@ -118,12 +118,18 @@
     background-color: #20aa20;
     color: white;
     border-radius: 0.5rem;
-    width: 1.5rem;
+    width: 2rem;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
     position: absolute;
     right: 0;
     padding: 0.2rem;
+}
+
+.align-star {
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem
 }
 
 .product-star div {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./components/checkout.css";
+import "./components/Checkout.css";
 import CheckoutCard from "./components/CheckoutCard";
 import CheckoutAddress from "./components/CheckoutAddress";
 

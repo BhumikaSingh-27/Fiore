@@ -18,8 +18,8 @@ const ProductCard = () => {
             </span>
           </div>
           <div className="product-star">
-            <div>
-              2 <FaStar size={10} />
+            <div className="align-star">
+         2   <FaStar size={10} />
             </div>
           </div>
         </div>

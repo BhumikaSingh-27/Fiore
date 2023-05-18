@@ -6,7 +6,8 @@
     box-shadow: 0px 0px 4px 5px var(--secondary-color);
     ;
     border: 2px solid var(--secondary-color);
-    margin: 4rem 2rem;
+
+    margin-bottom: 5rem;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
 }

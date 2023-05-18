@@ -1,3 +1,19 @@
+/* styles in main component- UserProfile */
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    margin: 2rem;
+    ;
+}
+
+.align-profile {
+    display: flex;
+    gap: 2rem;
+}
+
+/* styles in Profile component */
 .profile-container {
     display: flex;
     flex-direction: column;
@@ -6,6 +22,7 @@
     box-shadow: 2px 2px 5px 10px var(--secondary-color);
     border-radius: 0.7rem;
     padding: 1rem;
+    margin-top: 2rem;
 
 }
 
@@ -41,6 +58,7 @@
 
 .remove-address-btn {
     color: red;
+    border: 1px solid red;
 
 }
 
@@ -100,14 +118,20 @@
     padding: 0.5em 1rem;
     font-size: 1rem;
     border-radius: 0.5rem;
-    border: none;
+    /* border: none; */
 }
-
+.save-btn{
+    border: 1px solid var(--green);
+    color: var(--green);
+}
 .save-btn:hover {
     background-color: var(--green);
     color: white
 }
 
+.dummy-btn{
+    border: 1px solid gray;
+}
 .dummy-btn:hover {
     background-color: var(--secondary-color);
 }

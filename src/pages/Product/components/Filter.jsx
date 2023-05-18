@@ -6,9 +6,7 @@ const Filter = () => {
     <div>
       <div className="filter-main-body">
         <div className="filter-component">
-          <p>
-            <b>Filters</b>
-          </p>
+          <h4>Filters</h4>
           <p style={{ textDecoration: "underline" }}>Clear</p>
         </div>
         <div className="filter-price">

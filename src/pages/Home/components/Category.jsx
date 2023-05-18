@@ -7,7 +7,7 @@ const Category = () => {
       <div className="category-item-container">
         <img
           className="category-img"
-          src="https://imgcdn.floweraura.com/DSC_0661.jpg"
+          src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393366/NegProjects/E-commerce/Orchids/DSC_1302_cfhtl3.avif"
           alt=""
         />
         <h3>Roses</h3>

@@ -18,9 +18,13 @@ const Home = () => {
         </div>
       </main>
       
-        <h1>Trending Collections</h1>
+      <div className="mid-heading">
+      <h1>Search by Category</h1>
+      </div>
+       
 
         <div className="align-category">
+          <Category />
           <Category />
           <Category />
           

@@ -8,23 +8,29 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
+    name: "You Can WIN",
+    rating: "Shiv Khera",
     price: "5000",
-    categoryName: "non-fiction",
+    categoryName: "Roses",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684396315/NegProjects/E-commerce/Roses/rose_main_g3oej0.avif",
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
+    name: "You are Winner",
+    rating: "Junaid Qureshi",
     price: "3000",
-    categoryName: "horror",
+    categoryName: "Lilies",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392970/NegProjects/E-commerce/Lily/lily-main_xhfudr.avif",
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
+    name: "Think and Grow Rich",
+    rating: "Shiv Khera",
     price: "1000",
-    categoryName: "fiction",
+    categoryName: "Orchids",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393366/NegProjects/E-commerce/Orchids/DSC_1302_cfhtl3.avif",
   },
 ];
