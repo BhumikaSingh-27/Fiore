@@ -2,6 +2,13 @@
 .not-a-link {
     text-decoration: none;
 }
+.navlink{
+    color: black;
+}
+
+.navlink:hover{
+    color:var(--primary-color)
+}
 
 .navbar {
     /* border: 1px solid black; */

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Filter.css";
+import { DataContext } from "../../../contexts/DataContext";
 
 const Filter = () => {
+    const {state, dispatch} = useContext(DataContext)
   return (
     <div>
       <div className="filter-main-body">
@@ -9,9 +11,15 @@ const Filter = () => {
           <h4>Filters</h4>
           <p style={{ textDecoration: "underline" }}>Clear</p>
         </div>
+        
         <div className="filter-price">
-          <h4>Price</h4>
-          <input class type="range" min="0" max="100" />
+        <h4 className="price-h4">Price</h4>
+          <div className="slider-range">
+            <p>500</p>
+            <p>1500</p>
+            <p>3000</p>
+          </div>
+          <input class type="range" min="500" max="3000" value={state.priceFilter} onChange={dispatch({type:"SET_PRICE",})} />
         </div>
         <div className="filter-category">
           <h4>Category</h4>

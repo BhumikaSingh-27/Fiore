@@ -24,20 +24,29 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-nav">
-        <div className="login">Login</div>
+        <NavLink className="not-a-link navlink" to="/login">
+          <div className="login">Login</div>
+        </NavLink>
 
+        <NavLink className="navlink not-a-link" to="/wishlist">
         <div className="icon-style">
           <FaRegHeart />
         </div>
+        </NavLink>
 
+        <NavLink className="not-a-link navlink" to="/cart">
         <div className="icon-style">
           {" "}
           <FaShoppingCart />
         </div>
+        </NavLink>
+
+        <NavLink className="not-a-link navlink" to="/profile">
         <div className="icon-style">
           {" "}
           <IoPersonSharp />
         </div>
+       </NavLink>
       </div>
     </div>
   );

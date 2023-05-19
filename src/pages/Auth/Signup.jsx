@@ -3,6 +3,7 @@ import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,7 +16,7 @@ const Signup = () => {
     <div>
       <div className="sign-page">
         <div className="sign-up">
-          <h3>Sign Up</h3>
+          <h2>Sign Up</h2>
           <div className="login-element">
             <label>First Name:</label>{" "}
             <input
@@ -52,9 +53,9 @@ const Signup = () => {
             </div>
             <button className="login-btn">Create New Account</button>
           </div>
-          <a className="link" href="/login">
+          <NavLink className="link" to="/login">
             Already have an account <FaArrowAltCircleRight />
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>

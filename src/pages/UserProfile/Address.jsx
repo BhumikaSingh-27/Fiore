@@ -1,5 +1,7 @@
 import React from "react";
 import "./UserProfile.css";
+import "../../components/Navbar/Navbar.css"
+import { NavLink } from "react-router-dom";
 
 const Address = () => {
   return (
@@ -17,7 +19,7 @@ const Address = () => {
           <button className="edit-btn">Edit</button>
           <button className="remove-address-btn">Remove</button>
         </div>
-        <h3>+ Add a new Address</h3>
+        <NavLink className="not-a-link navlink" to="/addressform"><h3>+ Add a new Address</h3></NavLink>
       </div>
     </div>
   );

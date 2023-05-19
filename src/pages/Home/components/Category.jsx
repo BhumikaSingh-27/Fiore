@@ -1,16 +1,16 @@
 import React from "react";
 import "./Category.css";
 
-const Category = () => {
+const Category = ({_id,name,src}) => {
   return (
-    <div>
+    <div key={_id}>
       <div className="category-item-container">
         <img
           className="category-img"
-          src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393366/NegProjects/E-commerce/Orchids/DSC_1302_cfhtl3.avif"
+          src={src}
           alt=""
         />
-        <h3>Roses</h3>
+        <h3>{name}</h3>
       </div>
     </div>
   );

@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import "./Product.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../Home/components/Footer";
+import { DataContext } from "../../contexts/DataContext";
 
 const Product = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch("/api/products");
-        const dt = await response.json();
-        setData(dt.products);
-        // console.log(dt.products);
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  }, []);
-  console.log("inside product", data);
+    
+    const {state} = useContext(DataContext)
+    
   return (
     <>
       <Navbar />
@@ -29,9 +18,12 @@ const Product = () => {
           <Filter />
         </div>
         <div className="product-list">
-          {data.map((item) => (
-            <ProductCard item={item} />
-          ))}
+          
+          {
+            state.productData.map((flower)=> <ProductCard flower={flower} />)
+          }
+           
+         
         </div>
       </div>
       <footer>

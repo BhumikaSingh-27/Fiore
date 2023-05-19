@@ -1,6 +1,7 @@
 import React from "react";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -26,9 +27,9 @@ const Login = () => {
           <p>
             <a href="/root">Forgot password?</a>
           </p>
-          <a className="link" href="/signup">
+          <NavLink className="link" to="/signup">
             Create a new account <FaArrowAltCircleRight />
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>
