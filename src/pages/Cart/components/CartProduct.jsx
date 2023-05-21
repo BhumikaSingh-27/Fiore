@@ -1,31 +1,77 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../Cart.css";
 import "../../Product/Product.css";
+import { DataContext } from "../../../contexts/DataContext";
 
-const CartProduct = () => {
+const CartProduct = ({ item }) => {
+  const {
+    removeItemFromCart,
+    addItemToWishlist,
+    incrementItem,
+    decrementItem,
+  } = useContext(DataContext);
+  const { _id, name, image, price, discount, qty } = item;
+
+  const addToWishlistFromCart = (item) => {
+    addItemToWishlist(item);
+    removeItemFromCart(_id);
+  };
+
+  const checkQtyandDecrement = (itemId) => {
+    if (qty === 0) {
+      removeItemFromCart(itemId);
+    } else {
+      decrementItem(_id);
+    }
+  };
+  
   return (
-    <div>
+    <div key={_id}>
       <div className="cart-product-card">
-        <img src="https://picsum.photos/500/500" alt="" />
+        <img src={image} alt={name} />
         <div className="cart-product-details">
           <div className="cart-product-title">
             {" "}
-            <h3 className="title">TITLE of product</h3>
+            <h3 className="title">{name}</h3>
             <div className="display-flex">
               <div className="price-info">
-                <h1>&#x20B9; 7000</h1>
-                <p className="cross-price">&#x20B9;200 </p>{" "}
-                <span>(30%OFF)</span>
+                <h1>&#x20B9; {discount}</h1>
+                <p className="cross-price">&#x20B9;{price} </p>{" "}
+                <span>
+                  ({Math.round(((price - discount) / price) * 100)}%OFF)
+                </span>
               </div>
             </div>
             <div>
-              Quantity: <button className="quantity-change-btn">-</button> 1{" "}
-              <button className="quantity-change-btn">+</button>
+              Quantity:{" "}
+              <button
+                className="quantity-change-btn"
+                onClick={() => checkQtyandDecrement(_id)}
+              >
+                -
+              </button>{" "}
+              {qty}{" "}
+              <button
+                className="quantity-change-btn"
+                onClick={() => incrementItem(_id)}
+              >
+                +
+              </button>
             </div>
           </div>
 
-          <button className="add-btn remove-btn">Remove from Cart</button>
-          <button className="add-to-wishlist">Add to wishlist</button>
+          <button
+            className="add-btn remove-btn"
+            onClick={() => removeItemFromCart(_id)}
+          >
+            Remove from Cart
+          </button>
+          <button
+            className="add-to-wishlist"
+            onClick={() => addToWishlistFromCart(item)}
+          >
+            Add to wishlist
+          </button>
         </div>
       </div>
     </div>

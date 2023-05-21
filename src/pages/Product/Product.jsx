@@ -23,8 +23,14 @@ const Product = () => {
     ? dataByCategory.filter(({ rating }) => rating >= state.rating)
     : dataByCategory;
 
-    const finalFilteredData = state.sortType ? [...dataByRating].sort((a,b)=> state.sortType === 'LH' ? a.discount - b.discount : b.discount-a.discount) : dataByRating
-    
+  const finalFilteredData = state.sortType
+    ? [...dataByRating].sort((a, b) =>
+        state.sortType === "LH"
+          ? a.discount - b.discount
+          : b.discount - a.discount
+      )
+    : dataByRating;
+
   return (
     <>
       <Navbar />
@@ -34,7 +40,9 @@ const Product = () => {
         </div>
         <div className="product-list">
           {finalFilteredData.map((flower) => (
-            <ProductCard flower={flower} />
+           
+              <ProductCard flower={flower} />
+           
           ))}
         </div>
       </div>

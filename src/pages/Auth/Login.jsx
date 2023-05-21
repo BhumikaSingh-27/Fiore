@@ -3,11 +3,11 @@ import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import { loginHandler } from "../../backend/controllers/AuthController";
-import { AuthContext } from "../../contexts/AuthContext";
+
 
 const Login = () => {
   const [inputLogin, setInputLogin] = useState({ email: null, password: null });
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,7 +27,7 @@ const Login = () => {
       const { encodedToken } = await res.json();
 
       localStorage.setItem("encodedToken", encodedToken);
-      setIsLoggedIn(!isLoggedIn);
+      
       console.log("hello");
       if (inputLogin.email && inputLogin.password) {
         navigate(location?.state?.from?.pathname ?? "/");

@@ -1,15 +1,12 @@
 import React, { useContext } from "react";
 import "./UserProfile.css";
-import { useNavigate } from "react-router-dom";
+
 import { DataContext } from "../../contexts/DataContext";
+import { useLocation } from "react-router-dom";
 
 const Profile = () => {
-  const { inputSignUp } = useContext(DataContext);
-  const navigate = useNavigate();
-  const userLogOut = () => {
-    localStorage.clear();
-    navigate("/");
-  };
+  const { inputSignUp, userLogOut } = useContext(DataContext);
+
   return (
     <div>
       <div className="profile-container">
@@ -25,7 +22,7 @@ const Profile = () => {
               </p>
               <p>
                 <b>
-                <b>email:</b> {inputSignUp.email}
+                  <b>email:</b> {inputSignUp.email}
                 </b>
               </p>
             </>
@@ -41,7 +38,7 @@ const Profile = () => {
             </>
           )}
         </div>
-        <button className="add-btn" onClick={userLogOut}>
+        <button className="add-btn" onClick={() => userLogOut("/profile")}>
           Logout
         </button>
       </div>

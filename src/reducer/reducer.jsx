@@ -86,7 +86,6 @@ export const reducerFn = (state, action) => {
       }
     }
     case "SET_RATING": {
-    
       return {
         ...state,
         rating: action.payload,
@@ -112,6 +111,14 @@ export const reducerFn = (state, action) => {
         priceFilter: null,
         checkCategory: { isRoses: false, isLilies: false, isOrchids: false },
       };
+    }
+
+    case "ADD_ITEM": {
+      return { ...state, cartData: action.payload };
+    }
+
+    case "ADD_TO_WISHLIST" : {
+        return {...state, wishlistData:action.payload}
     }
     default:
       return state;
