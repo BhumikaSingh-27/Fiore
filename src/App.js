@@ -8,11 +8,11 @@ import Home from "./pages/Home/Home";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Auth/Login";
-import Profile from "./pages/UserProfile/Profile";
-import Footer from "./pages/Home/components/Footer";
 import Signup from "./pages/Auth/Signup";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import AddressForm from "./pages/UserProfile/AddressForm";
+import Checkout from "./pages/Checkout/Checkout";
+import { AuthWrapper } from "./components/Authenticate/AuthWrapper";
 
 function App() {
   return (
@@ -22,12 +22,35 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/product" element={<Product />}></Route>
         <Route path="/product/:prodId" element={<ProductDetails />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/wishlist" element={<Wishlist />}></Route>
+        <Route
+          path="/cart"
+          element={
+            <AuthWrapper>
+              <Cart />
+            </AuthWrapper>
+          }
+        ></Route>
+        <Route
+          path="/wishlist"
+          element={
+            <AuthWrapper>
+              <Wishlist />
+            </AuthWrapper>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/profile" element={<UserProfile />}></Route>
+        <Route
+          path="/profile"
+          element={
+            <AuthWrapper>
+              {" "}
+              <UserProfile />
+            </AuthWrapper>
+          }
+        ></Route>
         <Route path="/addressform" element={<AddressForm />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
     </div>
   );

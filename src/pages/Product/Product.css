@@ -127,6 +127,7 @@
     position: relative;
     top: 6rem;
     width: fit-content;
+    z-index: 0.5;
 }
 
 .product-list {

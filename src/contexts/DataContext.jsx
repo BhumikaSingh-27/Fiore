@@ -1,10 +1,18 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { initialValue, reducerFn } from "../reducer/reducer";
 
 export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
+  const [inputSignUp, setInputSignUp] = useState({
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null,
+  });
+
+  
 
   const getCategoryData = async () => {
     try {
@@ -15,7 +23,6 @@ export const DataContextProvider = ({ children }) => {
       console.log(e);
     }
   };
-  console.log("got cat with reducer", state.categoryData);
 
   const getProductData = async() => {
     try{
@@ -26,14 +33,16 @@ export const DataContextProvider = ({ children }) => {
         console.log(e)
     }
   }
+
 console.log("got product data", state.productData )
+
   useEffect(() => {
     getCategoryData();
     getProductData();
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider value={{ state, dispatch,setInputSignUp,inputSignUp}}>
       {children}
     </DataContext.Provider>
   );

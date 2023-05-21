@@ -7,8 +7,23 @@ import Footer from "../Home/components/Footer";
 import { DataContext } from "../../contexts/DataContext";
 
 const Product = () => {
-    
-    const {state} = useContext(DataContext)
+  const { state } = useContext(DataContext);
+
+  const dataFilteredByPrice = state.priceFilter
+    ? state.productData.filter(({ discount }) => discount <= state.priceFilter)
+    : [...state.updatedProductData];
+
+  const dataByCategory = state.catType.length
+    ? dataFilteredByPrice.filter(({ categoryName }) =>
+        state.catType.includes(categoryName)
+      )
+    : dataFilteredByPrice;
+
+  const dataByRating = state.rating
+    ? dataByCategory.filter(({ rating }) => rating >= state.rating)
+    : dataByCategory;
+
+    const finalFilteredData = state.sortType ? [...dataByRating].sort((a,b)=> state.sortType === 'LH' ? a.discount - b.discount : b.discount-a.discount) : dataByRating
     
   return (
     <>
@@ -18,12 +33,9 @@ const Product = () => {
           <Filter />
         </div>
         <div className="product-list">
-          
-          {
-            state.productData.map((flower)=> <ProductCard flower={flower} />)
-          }
-           
-         
+          {finalFilteredData.map((flower) => (
+            <ProductCard flower={flower} />
+          ))}
         </div>
       </div>
       <footer>

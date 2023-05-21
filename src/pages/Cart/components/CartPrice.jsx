@@ -1,6 +1,7 @@
 import React from "react";
 import "../Cart.css";
 import "../../Product/components/Filter.css";
+import { NavLink } from "react-router-dom";
 
 const CartPrice = () => {
   return (
@@ -34,7 +35,7 @@ const CartPrice = () => {
         <span className="cart-price-message">
           You will save rs 200 on this order
         </span>
-        <button className="add-btn">Checkout</button>
+        <NavLink to="/checkout"><button className="add-btn">Checkout</button></NavLink>
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ export const products = [
   {
     _id: uuid(),
     name: "Romance in Scarlet Hues",
-    rating: 4.5,
+    rating: 3,
     price: 1499,
     discount: 1249,
     categoryName: "Roses",
@@ -103,7 +103,7 @@ export const products = [
   {
     _id: uuid(),
     name: "Sunny Yellow Rose Bouquet",
-    rating: 4.7,
+    rating: 3.9,
     price: 2899,
     discount: 2549,
     categoryName: "Roses",
@@ -118,7 +118,7 @@ export const products = [
   {
     _id: uuid(),
     name: "Pink Oriental Lily Splendor",
-    rating: 4.4,
+    rating: 2,
     price: 1649,
     discount: 999,
     categoryName: "Lilies",

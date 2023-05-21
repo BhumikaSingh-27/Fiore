@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { IoFlower } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
+import { DataContext } from "../../contexts/DataContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
+    const {isLoggedIn} = useContext(AuthContext);
+console.log(isLoggedIn)
   return (
     <div className="navbar">
       <NavLink className="not-a-link" to="/">
@@ -25,7 +29,7 @@ const Navbar = () => {
 
       <div className="navbar-nav">
         <NavLink className="not-a-link navlink" to="/login">
-          <div className="login">Login</div>
+          <div className="login">  {isLoggedIn ? "Logout" : "Login"} </div>
         </NavLink>
 
         <NavLink className="navlink not-a-link" to="/wishlist">

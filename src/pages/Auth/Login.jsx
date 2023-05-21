@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+// import { loginHandler } from "../../backend/controllers/AuthController";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
+  const [inputLogin, setInputLogin] = useState({ email: null, password: null });
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const creds = {
+    email: inputLogin.email,
+    password: inputLogin.password,
+  };
+
+  const loginHandler = async () => {
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(creds),
+      });
+
+      const { encodedToken } = await res.json();
+
+      localStorage.setItem("encodedToken", encodedToken);
+      setIsLoggedIn(!isLoggedIn);
+      console.log("hello");
+      if (inputLogin.email && inputLogin.password) {
+        navigate(location?.state?.from?.pathname ?? "/");
+      } else {
+        navigate(location);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div>
       <div className="login-page">
@@ -15,14 +49,22 @@ const Login = () => {
               class="input-element"
               type="text"
               placeholder="bhumika@gmail.com"
+              onChange={(e) =>
+                setInputLogin({ ...inputLogin, email: e.target.value })
+              }
             />
             <label>Password:</label>
             <input
               class="input-element"
               type="password"
               placeholder="***********"
+              onChange={(e) =>
+                setInputLogin({ ...inputLogin, password: e.target.value })
+              }
             />
-            <button className="login-btn">Login</button>
+            <button className="login-btn" onClick={loginHandler}>
+              Login
+            </button>
           </div>
           <p>
             <a href="/root">Forgot password?</a>
