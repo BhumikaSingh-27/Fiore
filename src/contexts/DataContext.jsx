@@ -15,6 +15,10 @@ export const DataContextProvider = ({ children }) => {
     password: null,
   });
 
+    // calculating total price and discount
+  const totalPrice = state.cartData.reduce((acc, cur) => cur.price * cur.qty + acc, 0);
+  const discount = state.cartData.reduce((acc, cur) => cur.discount + acc, 0);
+
   const getCategoryData = async () => {
     try {
       const response = await fetch("/api/categories");
@@ -196,6 +200,8 @@ export const DataContextProvider = ({ children }) => {
         addItemToWishlist,
         incrementItem,
         decrementItem,
+        totalPrice,
+        discount
       }}
     >
       {children}

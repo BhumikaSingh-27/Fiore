@@ -10,7 +10,7 @@ import { DataContext } from "../../contexts/DataContext";
 const Navbar = () => {
     const {userLogOut} = useContext(DataContext)
     const location= useLocation()
-  
+
   return (
     <div className="navbar">
       <NavLink className="not-a-link" to="/">

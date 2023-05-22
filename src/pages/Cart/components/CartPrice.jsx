@@ -5,9 +5,7 @@ import { NavLink } from "react-router-dom";
 import { DataContext } from "../../../contexts/DataContext";
 
 const CartPrice = () => {
-  const { state } = useContext(DataContext);
-  const totalPrice = state.cartData.reduce((acc, cur) => cur.price * cur.qty + acc, 0);
-  const discount = state.cartData.reduce((acc, cur) => cur.discount + acc, 0);
+  const { state, totalPrice, discount } = useContext(DataContext);
 
   return (
     <div>
@@ -24,21 +22,21 @@ const CartPrice = () => {
           </div>
           <div className="cart-price-flex">
             <div>Discount</div>
-            <div>&#x20B9;{discount}</div>
+            <div>-&#x20B9;{totalPrice - discount}</div>
           </div>
           <div className="cart-price-flex">
             <div>Delivery Charges</div>
-            <div>&#x20B9;200</div>
+            <div>&#x20B9;FREE</div>
           </div>
         </div>
         <hr />
         <div className="cart-price-flex">
           <h3>TOTAL AMOUNT</h3>
-          <h3>&#x20B9;{totalPrice+discount+200}</h3>
+          <h3>&#x20B9;{discount}</h3>
         </div>
         <hr />
         <span className="cart-price-message">
-          You will save rs {totalPrice-discount} on this order
+          You will save rs {totalPrice - discount} on this order
         </span>
         <NavLink to="/checkout">
           <button className="add-btn">Checkout</button>

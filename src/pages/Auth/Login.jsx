@@ -27,8 +27,7 @@ const Login = () => {
       const { encodedToken } = await res.json();
 
       localStorage.setItem("encodedToken", encodedToken);
-      
-      console.log("hello");
+     
       if (inputLogin.email && inputLogin.password) {
         navigate(location?.state?.from?.pathname ?? "/");
       } else {

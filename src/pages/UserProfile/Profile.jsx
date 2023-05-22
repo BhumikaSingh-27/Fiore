@@ -12,28 +12,27 @@ const Profile = () => {
       <div className="profile-container">
         <h3>Profile Details</h3>
         <hr />
-        <div>
+        <div style={{margin:"5px"}}>
           {inputSignUp.firstName && inputSignUp.lastName ? (
             <>
               <p>
-                <b>
-                  full name: {inputSignUp.firstName} {inputSignUp.lastName}
-                </b>
+                <b>full name: </b>
+                {inputSignUp.firstName} {inputSignUp.lastName}
               </p>
               <p>
-                <b>
-                  <b>email:</b> {inputSignUp.email}
-                </b>
+                <b>email:</b> {inputSignUp.email}
               </p>
             </>
           ) : (
             <>
               <p>
-                <b>full name:</b>Bhumika Singh
-              </p>
+                <p>
+                  <b>full name: </b>Bhumika Singh
+                </p>
 
-              <p>
-                <b>email:</b> bhumika@gmail.com
+                <p>
+                  <b>email:</b> bhumika@gmail.com
+                </p>
               </p>
             </>
           )}
