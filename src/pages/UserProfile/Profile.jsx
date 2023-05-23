@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import "./UserProfile.css";
-
 import { DataContext } from "../../contexts/DataContext";
-import { useLocation } from "react-router-dom";
 
 const Profile = () => {
   const { inputSignUp, userLogOut } = useContext(DataContext);
@@ -12,28 +10,28 @@ const Profile = () => {
       <div className="profile-container">
         <h3>Profile Details</h3>
         <hr />
-        <div style={{margin:"5px"}}>
+        <div className="align-center">
           {inputSignUp.firstName && inputSignUp.lastName ? (
             <>
               <p>
                 <b>full name: </b>
                 {inputSignUp.firstName} {inputSignUp.lastName}
-              </p>
-              <p>
+                <br />
                 <b>email:</b> {inputSignUp.email}
               </p>
             </>
           ) : (
             <>
-              <p>
+              <div>
                 <p>
-                  <b>full name: </b>Bhumika Singh
+                  <b>full name: </b>Bhumika Singh{" "}
                 </p>
 
                 <p>
+                  {" "}
                   <b>email:</b> bhumika@gmail.com
                 </p>
-              </p>
+              </div>
             </>
           )}
         </div>

@@ -3,23 +3,43 @@ import "./Product.css";
 import "./components/Filter.css";
 import "../Cart/Cart.css";
 import { FaStar } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
   const { prodId } = useParams();
-  const { state } = useContext(DataContext);
+  const { state, addItemToCart } = useContext(DataContext);
+  const navigate = useNavigate();
 
   const prodInfo = state.productData.find(
     ({ _id }) => _id.toString() === prodId
   );
-  console.log(prodInfo)
+
+  const itemInCart = state?.cartData.find(
+    ({ _id }) => _id.toString() === prodId
+  );
+
+  const add = (item) => {
+    if (itemInCart) {
+      navigate("/cart");
+    } else {
+      addItemToCart(item);
+      toast.success("Item added to Cart!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+      });
+    }
+  };
+
   return (
     <div className="product-details-container" key={prodInfo?._id}>
       <div className="product-details">
         <img
           className="product-details-img"
-          src={prodInfo.image}
+          src={prodInfo?.image}
           alt={prodInfo?.name}
         />
         <div className="display-flex">
@@ -78,7 +98,10 @@ const ProductDetails = () => {
           </div>
           <div className="button-style">
             <button className="add-to-wishlist">Move to wishlist</button>
-            <button className="add-btn">Add to cart</button>
+            <button className="add-btn" onClick={() => add(prodInfo)}>
+              {itemInCart ? "Go To Cart" : "Add to cart"}
+            </button>
+            <ToastContainer />
           </div>
         </div>
       </div>

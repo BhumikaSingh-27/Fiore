@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../../../contexts/DataContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductCard = ({ flower }) => {
   const { _id, name, image, price, discount, rating } = flower;
@@ -18,14 +20,30 @@ const ProductCard = ({ flower }) => {
   const setWishlist = (location, flower) => {
     if (!wishlistItem) {
       addToWishlist(location, flower);
+      toast.success("Added to Wishlist", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+      });
     } else {
       removeFromWishlist(flower);
+      toast.warn("Removed from Wishlist", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+        // theme:"colored"
+      });
     }
   };
 
   const setCart = (location, flower) => {
     if (!cartItem) {
       addToCart(location, flower);
+      toast.success("Item added to Cart!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+      });
     } else {
       navigate("/cart");
     }
@@ -77,6 +95,7 @@ const ProductCard = ({ flower }) => {
           <button className="add-btn" onClick={() => setCart(location, flower)}>
             <FaShoppingCart /> {cartItem ? "Go to Cart" : "Add to Cart"}
           </button>
+          <ToastContainer />
         </div>
       </div>
     </>

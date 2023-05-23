@@ -1,12 +1,13 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { initialAddress, orderReducerFn } from "../reducer/orderReducer";
 
 export const AddressContext = createContext();
 
 export const AddressContextProvider = ({ children }) => {
   const [address, addressDispatch] = useReducer(orderReducerFn, initialAddress);
-  console.log(address);
-  const addressList = [
+  const [checkoutAddress, setCheckoutAddress] = useState(null)
+
+  const defaultAddress = [
     {
       name: "Bhumika Singh",
       houseNo: "savita sadan, road no 18/4A",
@@ -17,8 +18,19 @@ export const AddressContextProvider = ({ children }) => {
       mobile: "7999899345",
     },
   ];
+
+  useEffect(() => {
+    (() => {
+      try {
+        addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+
   return (
-    <AddressContext.Provider value={{addressList, address, addressDispatch }}>
+    <AddressContext.Provider value={{ address, addressDispatch,checkoutAddress, setCheckoutAddress}}>
       {children}
     </AddressContext.Provider>
   );

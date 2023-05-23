@@ -5,8 +5,7 @@ import { NavLink } from "react-router-dom";
 import { AddressContext } from "../../contexts/AddressContext";
 
 const Address = () => {
- 
-const {addressList} = useContext(AddressContext)
+  const { address, addressDispatch } = useContext(AddressContext);
 
   return (
     <div>
@@ -16,7 +15,7 @@ const {addressList} = useContext(AddressContext)
           <hr />
         </div>
 
-        {addressList.map(
+        {address.addressData?.map(
           (
             { name, houseNo, city, state, country, postalCode, mobile },
             index
@@ -25,8 +24,10 @@ const {addressList} = useContext(AddressContext)
               <div key={index} className="address-body">
                 <h4>{name}</h4>
                 <p style={{ textAlign: "left" }}>
-                  {houseNo},{city},{state},{country}.<br />Pincode: {postalCode}.
-                   <br />mobile:{mobile}
+                  {houseNo},{city},{state},{country}.<br />
+                  Pincode: {postalCode}.
+                  <br />
+                  mobile:{mobile}
                 </p>
               </div>
             );
@@ -38,7 +39,9 @@ const {addressList} = useContext(AddressContext)
           <button className="remove-address-btn">Remove</button>
         </div>
         <NavLink className="not-a-link navlink" to="/addressform">
-          <h3>+ Add a new Address</h3>
+          <h3>
+            + Add a new Address
+          </h3>
         </NavLink>
       </div>
     </div>

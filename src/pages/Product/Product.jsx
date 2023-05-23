@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import "./Product.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../Home/components/Footer";
 import { DataContext } from "../../contexts/DataContext";
+
 
 const Product = () => {
   const { state } = useContext(DataContext);
@@ -40,9 +41,7 @@ const Product = () => {
         </div>
         <div className="product-list">
           {finalFilteredData.map((flower) => (
-           
-              <ProductCard flower={flower} />
-           
+            <ProductCard flower={flower} />
           ))}
         </div>
       </div>

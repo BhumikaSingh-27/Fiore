@@ -15,8 +15,11 @@ export const DataContextProvider = ({ children }) => {
     password: null,
   });
 
-    // calculating total price and discount
-  const totalPrice = state.cartData.reduce((acc, cur) => cur.price * cur.qty + acc, 0);
+  // calculating total price and discount
+  const totalPrice = state.cartData.reduce(
+    (acc, cur) => cur.price * cur.qty + acc,
+    0
+  );
   const discount = state.cartData.reduce((acc, cur) => cur.discount + acc, 0);
 
   const getCategoryData = async () => {
@@ -80,8 +83,14 @@ export const DataContextProvider = ({ children }) => {
   };
 
   const addToCart = (location, item) => {
+    const extItem = state?.cartData.find(({ _id }) => _id === item._id);
+    console.log("exsting", extItem);
     if (localStorage.getItem("encodedToken")) {
-      addItemToCart(item);
+      if (!extItem) {
+        addItemToCart(item);
+      } else {
+        incrementItem(item._id);
+      }
     } else {
       navigate("/login", { state: { from: location } });
     }
@@ -124,8 +133,11 @@ export const DataContextProvider = ({ children }) => {
   };
 
   const addToWishlist = (location, flower) => {
+    const extItem = state?.wishlistData.find(({ _id }) => _id === flower._id);
     if (localStorage.getItem("encodedToken")) {
-      addItemToWishlist(flower);
+      if (!extItem) {
+        addItemToWishlist(flower);
+      }
     } else {
       navigate("/login", { state: { from: location } });
     }
@@ -135,11 +147,6 @@ export const DataContextProvider = ({ children }) => {
     localStorage.clear();
     navigate(location);
   };
-
-  useEffect(() => {
-    getCategoryData();
-    getProductData();
-  }, []);
 
   const incrementItem = (itemId) => {
     (async () => {
@@ -184,6 +191,12 @@ export const DataContextProvider = ({ children }) => {
       }
     })();
   };
+
+  useEffect(() => {
+    getCategoryData();
+    getProductData();
+  }, []);
+
   return (
     <DataContext.Provider
       value={{
@@ -201,7 +214,7 @@ export const DataContextProvider = ({ children }) => {
         incrementItem,
         decrementItem,
         totalPrice,
-        discount
+        discount,
       }}
     >
       {children}

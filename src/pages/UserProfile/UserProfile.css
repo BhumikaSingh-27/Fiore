@@ -13,6 +13,10 @@
     gap: 2rem;
 }
 
+.align-center div {
+    text-align: center;
+}
+
 /* styles in Profile component */
 .profile-container {
     display: flex;
@@ -121,18 +125,21 @@
     border-radius: 0.5rem;
     /* border: none; */
 }
-.save-btn{
+
+.save-btn {
     border: 1px solid var(--green);
     color: var(--green);
 }
+
 .save-btn:hover {
     background-color: var(--green);
     color: white
 }
 
-.dummy-btn{
+.dummy-btn {
     border: 1px solid gray;
 }
+
 .dummy-btn:hover {
     background-color: var(--secondary-color);
 }

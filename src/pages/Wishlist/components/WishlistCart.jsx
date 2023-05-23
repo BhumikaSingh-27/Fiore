@@ -2,16 +2,24 @@ import React, { useContext } from "react";
 import "./Wishlist.css";
 import "../../Cart/Cart.css";
 import { DataContext } from "../../../contexts/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const WishlistCart = ({ item }) => {
-  const { addItemToCart, removeFromWishlist } = useContext(DataContext);
+  const { state, addToCart, removeFromWishlist } = useContext(DataContext);
+  const navigate = useNavigate();
 
   const { _id, name, image, discount, price } = item;
 
   const addItemToCartFromWishlist = (item) => {
-    addItemToCart(item);
-    removeFromWishlist(item);
+    if (!getItem) {
+      addToCart(item);
+    } else {
+      navigate("/cart");
+    }
   };
+
+  const getItem = state?.cartData.find(({ _id }) => _id === item._id);
+
   return (
     <div key={_id}>
       <div className="cart-product-card">
@@ -42,7 +50,7 @@ const WishlistCart = ({ item }) => {
             className="add-to-wishlist"
             onClick={() => addItemToCartFromWishlist(item)}
           >
-            Add to Cart
+            {getItem ? "Go to Cart" : "Add to Cart"}
           </button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";

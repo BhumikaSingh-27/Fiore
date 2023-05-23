@@ -1,10 +1,11 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext } from "react";
 import "./Checkout.css";
 import { DataContext } from "../../../contexts/DataContext";
+import { AddressContext } from "../../../contexts/AddressContext";
 
 const CheckoutCard = () => {
-  const {state,totalPrice,discount} = useContext(DataContext)
-
+  const { state, totalPrice, discount } = useContext(DataContext);
+  const { checkoutAddress } = useContext(AddressContext);
   return (
     <>
       <div className="checkout-container">
@@ -12,24 +13,23 @@ const CheckoutCard = () => {
         <h3>ORDER DETAILS</h3>
         <hr />
         <div className="container-margin">
-            <div className="checkout-header">
-          <div className="checkout-flex">
-            <h3>Item</h3>
-            <h3>Qty</h3>
-          </div>
+          <div className="checkout-header">
+            <div className="checkout-flex">
+              <h3>Item</h3>
+              <h3>Qty</h3>
+            </div>
           </div>
 
           {/* this will vary, we need to apply map and return this */}
-    
-          {
-            state?.cartData?.map((ele)=>(<div  key={ele._id} className="checkout-flex"> 
+
+          {state?.cartData?.map((ele) => (
+            <div key={ele._id} className="checkout-flex">
               <p>{ele.name}</p>
               <p>{ele.qty}</p>
-            </div>))
-          }
-        
-         
-            {/* <p>Book Name</p>
+            </div>
+          ))}
+
+          {/* <p>Book Name</p>
             <p>1</p>
           </div>
           <div className="checkout-flex">
@@ -48,7 +48,7 @@ const CheckoutCard = () => {
           </div>
           <div className="checkout-flex">
             <p>Discount</p>
-            <p> &#x20B9; {totalPrice-discount} </p>
+            <p> &#x20B9; {totalPrice - discount} </p>
           </div>
           <div className="checkout-flex">
             <p>Delivery Charges</p>
@@ -65,7 +65,7 @@ const CheckoutCard = () => {
         <div className="checkout-flex-column">
           <div className="checkout-flex-column start">
             <div>UserName</div>
-            <div className="address">address- savita sandan</div>
+            <div className="address">{checkoutAddress}</div>
           </div>
           <button className="add-btn checkout">Place order</button>
         </div>

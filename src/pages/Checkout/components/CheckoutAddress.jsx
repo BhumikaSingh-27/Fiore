@@ -1,18 +1,24 @@
-import React from "react";
-import "./Checkout.css"
+import React, { useContext } from "react";
+import "./Checkout.css";
+import { AddressContext } from "../../../contexts/AddressContext";
 
-const CheckoutAddress = () => {
+const CheckoutAddress = ({ add }) => {
   return (
     <div className="address-container">
       <label>
         {" "}
         <div className="address-bar">
-        <input type="radio" name="address" />
-        <div className="checkout-flex-column start">
-          <div>UserName</div>
-          <div className="address">address- savita sandanaddress- savita sandan
-          road 18/4a</div>
-        </div>{" "}
+          <input type="radio" name="address" />
+
+          <div className="checkout-flex-column start">
+            <div>
+              <b>{add.name}</b>
+            </div>
+            <div className="address">
+              {add.houseNo},{add.city},{add.state},{add.country}.<br />
+              Pincode: {add.postalCode}. mobile:{add.mobile}
+            </div>
+          </div>
         </div>
       </label>
     </div>

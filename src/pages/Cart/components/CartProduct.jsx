@@ -5,16 +5,23 @@ import { DataContext } from "../../../contexts/DataContext";
 
 const CartProduct = ({ item }) => {
   const {
+    state,
     removeItemFromCart,
-    addItemToWishlist,
+    removeFromWishlist,
+    addToWishlist,
     incrementItem,
     decrementItem,
   } = useContext(DataContext);
   const { _id, name, image, price, discount, qty } = item;
 
+  const getItem = state?.wishlistData.find(({ _id }) => _id === item._id);
+
   const addToWishlistFromCart = (item) => {
-    addItemToWishlist(item);
-    removeItemFromCart(_id);
+    if (!getItem) {
+      addToWishlist(item);
+      removeItemFromCart(_id);
+    }
+    removeFromWishlist(item)
   };
 
   const checkQtyandDecrement = (itemId) => {
@@ -24,7 +31,7 @@ const CartProduct = ({ item }) => {
       decrementItem(_id);
     }
   };
-  
+
   return (
     <div key={_id}>
       <div className="cart-product-card">
@@ -70,7 +77,7 @@ const CartProduct = ({ item }) => {
             className="add-to-wishlist"
             onClick={() => addToWishlistFromCart(item)}
           >
-            Add to wishlist
+            {getItem ? "Remove from wishlist" : "Add to wishlist"}
           </button>
         </div>
       </div>
