@@ -6,7 +6,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../Home/components/Footer";
 import { DataContext } from "../../contexts/DataContext";
 
-
 const Product = () => {
   const { state } = useContext(DataContext);
 
@@ -34,21 +33,28 @@ const Product = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="product-page">
+      <div
+        style={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}
+      >
         <div>
-          <Filter />
+          <Navbar />
         </div>
-        <div className="product-list">
-          {finalFilteredData.map((flower) => (
-            <ProductCard flower={flower} />
-          ))}
+
+        <div className="product-page">
+          <div>
+            <Filter />
+          </div>
+          <div className="product-list">
+            {finalFilteredData.map((flower) => (
+              <ProductCard flower={flower} />
+            ))}
+          </div>
         </div>
+        <footer>
+          {" "}
+          <Footer />
+        </footer>
       </div>
-      <footer>
-        {" "}
-        <Footer />
-      </footer>
     </>
   );
 };

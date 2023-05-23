@@ -13,7 +13,7 @@ const Checkout = () => {
       <div className="main-checkout-body">
         <div className="show-checkout-container">
           {
-address.addressData.map((add)=><div className="checkout-address-container">
+address.addressData?.map((add)=><div className="checkout-address-container">
 
 <CheckoutAddress add={add}/>
 

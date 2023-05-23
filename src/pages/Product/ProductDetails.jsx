@@ -3,15 +3,16 @@ import "./Product.css";
 import "./components/Filter.css";
 import "../Cart/Cart.css";
 import { FaStar } from "react-icons/fa";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
   const { prodId } = useParams();
-  const { state, addItemToCart } = useContext(DataContext);
+  const { state, addToCart, addToWishlist } = useContext(DataContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const prodInfo = state.productData.find(
     ({ _id }) => _id.toString() === prodId
@@ -21,12 +22,27 @@ const ProductDetails = () => {
     ({ _id }) => _id.toString() === prodId
   );
 
+  const itemInWishlist = state?.wishlistData.find(({ _id }) => _id === prodId);
+
   const add = (item) => {
     if (itemInCart) {
       navigate("/cart");
     } else {
-      addItemToCart(item);
+      addToCart(location, item);
       toast.success("Item added to Cart!", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+      });
+    }
+  };
+
+  const moveItemToWishlist = (item) => {
+    if (itemInWishlist) {
+      navigate("/wishlist");
+    } else {
+      addToWishlist(location, item);
+      toast.success("Item added to Wishlist!", {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
@@ -97,7 +113,13 @@ const ProductDetails = () => {
             </ul>
           </div>
           <div className="button-style">
-            <button className="add-to-wishlist">Move to wishlist</button>
+            <button
+              className="add-to-wishlist"
+              onClick={() => moveItemToWishlist(prodInfo)}
+            >
+              {" "}
+              {itemInWishlist ? "already in Wishlist" : "Move to wishlist"}
+            </button>
             <button className="add-btn" onClick={() => add(prodInfo)}>
               {itemInCart ? "Go To Cart" : "Add to cart"}
             </button>

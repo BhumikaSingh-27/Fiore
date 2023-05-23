@@ -3,22 +3,39 @@ import "./Wishlist.css";
 import "../../Cart/Cart.css";
 import { DataContext } from "../../../contexts/DataContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WishlistCart = ({ item }) => {
-  const { state, addToCart, removeFromWishlist } = useContext(DataContext);
+  const { state, addItemToCart, removeFromWishlist } = useContext(DataContext);
   const navigate = useNavigate();
 
   const { _id, name, image, discount, price } = item;
+  const getItem = state?.cartData.find(({ _id }) => _id === item._id);
 
   const addItemToCartFromWishlist = (item) => {
     if (!getItem) {
-      addToCart(item);
+      addItemToCart(item);
+      toast.success("Added to Cart", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+      });
+
     } else {
       navigate("/cart");
     }
   };
 
-  const getItem = state?.cartData.find(({ _id }) => _id === item._id);
+  const removeItem = (item) => {
+    removeFromWishlist(item);
+    // toast.warn("Removed from Wishlist", {
+    //   position: toast.POSITION.TOP_RIGHT,
+    //   theme: "light",
+    //   autoClose: 2000,
+    //   // theme:"colored"
+    // });
+  };
 
   return (
     <div key={_id}>
@@ -41,7 +58,7 @@ const WishlistCart = ({ item }) => {
 
           <button
             className="add-btn remove-btn"
-            onClick={() => removeFromWishlist(item)}
+            onClick={() => removeItem(item)}
           >
             {" "}
             Remove from Wishlist
@@ -54,6 +71,7 @@ const WishlistCart = ({ item }) => {
           </button>
         </div>
       </div>
+      {/* <ToastContainer /> */}
     </div>
   );
 };

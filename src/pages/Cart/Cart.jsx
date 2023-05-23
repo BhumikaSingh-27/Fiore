@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <div>
       {/* <Navbar /> */}
-      {state.cartData.length ? (
+      {state?.cartData.length ? (
         <>
           <div className="cart-header">
             <h1>My Cart ({state.cartData.length})</h1>

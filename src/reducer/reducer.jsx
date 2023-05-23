@@ -97,10 +97,29 @@ export const reducerFn = (state, action) => {
     }
 
     case "SELECT_DATABY_CATEGORY": {
-      const catData = state.productData.filter(
-        ({ categoryName }) => categoryName === action.payload
+      const arr = Object.keys(state.checkCategory);
+      console.log(arr);
+      const newValue = arr.reduce(
+        (acc, cur) => (cur.includes(action.payload) ? acc + cur : acc),
+        ""
       );
-      return { ...state, updatedProductData: catData };
+      const obj = { ...state.checkCategory, [newValue]: true };
+      console.log(obj);
+
+      const catData = state.productData.filter((ele) => {
+        for (let i in arr) {
+          return obj[i];
+        }
+        return true;
+      });
+
+      console.log(catData);
+
+      return {
+        ...state,
+        updatedProductData: catData,
+        checkCategory: obj,
+      };
     }
     case "RESET_ALL": {
       return {
@@ -117,8 +136,8 @@ export const reducerFn = (state, action) => {
       return { ...state, cartData: action.payload };
     }
 
-    case "ADD_TO_WISHLIST" : {
-        return {...state, wishlistData:action.payload}
+    case "ADD_TO_WISHLIST": {
+      return { ...state, wishlistData: action.payload };
     }
     default:
       return state;

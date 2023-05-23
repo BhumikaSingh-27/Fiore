@@ -1,11 +1,13 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { initialValue, reducerFn } from "../reducer/reducer";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
+ 
   const navigate = useNavigate();
 
   const [inputSignUp, setInputSignUp] = useState({
@@ -62,35 +64,32 @@ export const DataContextProvider = ({ children }) => {
   };
 
   const addItemToCart = async (item) => {
-    try {
-      // console.log("before adding",item)
-      // console.log(JSON.stringify(item))
-      const flowerData = { product: item };
-      const res = await fetch("/api/user/cart", {
-        method: "POST",
-        headers: {
-          authorization: localStorage.getItem("encodedToken"),
-        },
-        body: JSON.stringify(flowerData),
-      });
+    const extItem = state?.cartData.find(({ _id }) => _id === item._id);
+    if (extItem) {
+      incrementItem(item._id);
+    } else {
+      try {
+        const flowerData = { product: item };
+        const res = await fetch("/api/user/cart", {
+          method: "POST",
+          headers: {
+            authorization: localStorage.getItem("encodedToken"),
+          },
+          body: JSON.stringify(flowerData),
+        });
 
-      const data = await res.json();
-      //   console.log(data.cart);
-      dispatch({ type: "ADD_ITEM", payload: data.cart });
-    } catch (e) {
-      console.log(e);
+        const data = await res.json();
+        //   console.log(data.cart);
+        dispatch({ type: "ADD_ITEM", payload: data.cart });
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 
   const addToCart = (location, item) => {
-    const extItem = state?.cartData.find(({ _id }) => _id === item._id);
-    console.log("exsting", extItem);
     if (localStorage.getItem("encodedToken")) {
-      if (!extItem) {
-        addItemToCart(item);
-      } else {
-        incrementItem(item._id);
-      }
+      addItemToCart(item);
     } else {
       navigate("/login", { state: { from: location } });
     }
@@ -112,32 +111,35 @@ export const DataContextProvider = ({ children }) => {
         console.log(e);
       }
     })();
+    if(state.wishlistData.length === 0){
+      
+    }
   };
   const addItemToWishlist = async (item) => {
     // const alter = { ...item, wishlist: true };
-    try {
-      const flower = { product: item };
-      const res = await fetch("/api/user/wishlist", {
-        method: "POST",
-        headers: {
-          authorization: localStorage.getItem("encodedToken"),
-        },
-        body: JSON.stringify(flower),
-      });
+    const extItem = state?.wishlistData.find(({ _id }) => _id === item._id);
+    if (!extItem) {
+      try {
+        const flower = { product: item };
+        const res = await fetch("/api/user/wishlist", {
+          method: "POST",
+          headers: {
+            authorization: localStorage.getItem("encodedToken"),
+          },
+          body: JSON.stringify(flower),
+        });
 
-      const data = await res.json();
-      dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
-    } catch (e) {
-      console.log(e);
+        const data = await res.json();
+        dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 
   const addToWishlist = (location, flower) => {
-    const extItem = state?.wishlistData.find(({ _id }) => _id === flower._id);
     if (localStorage.getItem("encodedToken")) {
-      if (!extItem) {
-        addItemToWishlist(flower);
-      }
+      addItemToWishlist(flower);
     } else {
       navigate("/login", { state: { from: location } });
     }

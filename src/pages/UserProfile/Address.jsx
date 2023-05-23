@@ -1,11 +1,21 @@
 import React, { useContext } from "react";
 import "./UserProfile.css";
 import "../../components/Navbar/Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AddressContext } from "../../contexts/AddressContext";
 
 const Address = () => {
   const { address, addressDispatch } = useContext(AddressContext);
+  const navigate = useNavigate();
+
+  const editTheForm = (add) => {
+    navigate("/addressform");
+    addressDispatch({
+      type: "EDIT_ADDRESS",
+      payload: add,
+    });
+  };
+  console.log(address);
 
   return (
     <div>
@@ -15,31 +25,59 @@ const Address = () => {
           <hr />
         </div>
 
-        {address.addressData?.map(
+        {address?.addressData?.map(
           (
-            { name, houseNo, city, state, country, postalCode, mobile },
+            { id,name, houseNo, city, state, country, postalCode, mobile },
             index
           ) => {
             return (
               <div key={index} className="address-body">
-                <h4>{name}</h4>
-                <p style={{ textAlign: "left" }}>
-                  {houseNo},{city},{state},{country}.<br />
-                  Pincode: {postalCode}.
-                  <br />
-                  mobile:{mobile}
-                </p>
+                <div className="address-body">
+                  <h4>{name}</h4>
+                  <p style={{ textAlign: "left" }}>
+                    {houseNo},{city},{state},{country}.<br />
+                    Pincode: {postalCode}.
+                    <br />
+                    mobile:{mobile}
+                  </p>
+                </div>
+                <div className="address-button">
+                  <button
+                    className="edit-btn"
+                    onClick={() =>
+                      editTheForm({
+                        id,
+                        name,
+                        houseNo,
+                        city,
+                        state,
+                        country,
+                        postalCode,
+                        mobile,
+                      })
+                    }
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="remove-address-btn"
+                    onClick={() =>
+                      addressDispatch({
+                        type: "REMOVE_ADD",
+                        payload: postalCode,
+                      })
+                    }
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
             );
           }
         )}
 
-        <div className="address-button">
-          <button className="edit-btn">Edit</button>
-          <button className="remove-address-btn">Remove</button>
-        </div>
         <NavLink className="not-a-link navlink" to="/addressform">
-          <h3>
+          <h3 onClick={() => addressDispatch({ type: "RESET_ADDRESS" })}>
             + Add a new Address
           </h3>
         </NavLink>

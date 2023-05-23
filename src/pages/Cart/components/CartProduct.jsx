@@ -2,33 +2,36 @@ import React, { useContext } from "react";
 import "../Cart.css";
 import "../../Product/Product.css";
 import { DataContext } from "../../../contexts/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const CartProduct = ({ item }) => {
   const {
     state,
     removeItemFromCart,
-    removeFromWishlist,
-    addToWishlist,
+    addItemToWishlist,
     incrementItem,
     decrementItem,
   } = useContext(DataContext);
+
+  const navigate = useNavigate();
   const { _id, name, image, price, discount, qty } = item;
 
   const getItem = state?.wishlistData.find(({ _id }) => _id === item._id);
 
   const addToWishlistFromCart = (item) => {
     if (!getItem) {
-      addToWishlist(item);
+      addItemToWishlist(item);
       removeItemFromCart(_id);
+    } else {
+      navigate("/wishlist");
     }
-    removeFromWishlist(item)
   };
 
   const checkQtyandDecrement = (itemId) => {
-    if (qty === 0) {
-      removeItemFromCart(itemId);
-    } else {
+    if (qty > 1) {
       decrementItem(_id);
+    } else {
+      removeItemFromCart(itemId);
     }
   };
 
@@ -77,7 +80,7 @@ const CartProduct = ({ item }) => {
             className="add-to-wishlist"
             onClick={() => addToWishlistFromCart(item)}
           >
-            {getItem ? "Remove from wishlist" : "Add to wishlist"}
+            {getItem ? "already in wishlist" : "Add to wishlist"}
           </button>
         </div>
       </div>

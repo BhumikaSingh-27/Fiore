@@ -5,10 +5,12 @@ export const AddressContext = createContext();
 
 export const AddressContextProvider = ({ children }) => {
   const [address, addressDispatch] = useReducer(orderReducerFn, initialAddress);
-  const [checkoutAddress, setCheckoutAddress] = useState(null)
+  const [checkoutAddress, setCheckoutAddress] = useState(null);
+  console.log(address);
 
   const defaultAddress = [
     {
+      id:1,
       name: "Bhumika Singh",
       houseNo: "savita sadan, road no 18/4A",
       city: "Patna",
@@ -30,7 +32,9 @@ export const AddressContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AddressContext.Provider value={{ address, addressDispatch,checkoutAddress, setCheckoutAddress}}>
+    <AddressContext.Provider
+      value={{ address, addressDispatch, checkoutAddress, setCheckoutAddress }}
+    >
       {children}
     </AddressContext.Provider>
   );
