@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import WishlistCart from "./components/WishlistCart";
 import "./components/Wishlist.css";
 import { DataContext } from "../../contexts/DataContext";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Wishlist = () => {
