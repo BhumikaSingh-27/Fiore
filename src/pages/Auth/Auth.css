@@ -5,7 +5,7 @@
     width: 525px;
     padding: 2rem;
     left: 500px;
-    top: 100px;
+    top: 150px;
 }
 
 .login-container {
@@ -27,7 +27,7 @@
     height: 650px;
     position: absolute;
     left: 500px;
-    top:50px;
+    top: 50px;
 }
 
 .login-page h3 {
@@ -62,7 +62,13 @@
     background-color: var(--primary-color);
     color: white;
     border: none;
-    flex-grow: 1
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+    color: black;
 }
 
 .link {

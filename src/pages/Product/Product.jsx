@@ -9,9 +9,15 @@ import { DataContext } from "../../contexts/DataContext";
 const Product = () => {
   const { state } = useContext(DataContext);
 
-  const dataFilteredByPrice = state.priceFilter
-    ? state.productData.filter(({ discount }) => discount <= state.priceFilter)
+  const searchedData = state.searchText
+    ? state.productData.filter(({ name }) =>
+        name.toLowerCase().includes(state.searchText.toLowerCase())
+      )
     : [...state.updatedProductData];
+
+  const dataFilteredByPrice = state.priceFilter
+    ? searchedData.filter(({ discount }) => discount <= state.priceFilter)
+    : searchedData;
 
   const dataByCategory = state.catType.length
     ? dataFilteredByPrice.filter(({ categoryName }) =>
@@ -36,10 +42,6 @@ const Product = () => {
       <div
         style={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}
       >
-        <div>
-          <Navbar />
-        </div>
-
         <div className="product-page">
           <div>
             <Filter />
@@ -50,10 +52,10 @@ const Product = () => {
             ))}
           </div>
         </div>
-        <footer>
+        {/* <footer>
           {" "}
           <Footer />
-        </footer>
+        </footer> */}
       </div>
     </>
   );

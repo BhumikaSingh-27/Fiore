@@ -5,7 +5,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
 }
 
 * {
@@ -20,6 +20,7 @@ body {
   --secondary-color: #d1d5db;
   --green: #20aa20;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

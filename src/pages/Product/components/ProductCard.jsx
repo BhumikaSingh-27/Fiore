@@ -8,6 +8,7 @@ import { DataContext } from "../../../contexts/DataContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const ProductCard = ({ flower }) => {
   const { _id, name, image, price, discount, rating } = flower;
 
@@ -24,6 +25,7 @@ const ProductCard = ({ flower }) => {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
+        className: "toast-align",
       });
     } else {
       removeFromWishlist(flower);
@@ -54,7 +56,7 @@ const ProductCard = ({ flower }) => {
   // console.log("inside flower", flower);
 
   const cartItem = state?.cartData.find((item) => item._id === _id);
-  console.log("cart item", cartItem);
+
   return (
     <>
       <div key={_id}>

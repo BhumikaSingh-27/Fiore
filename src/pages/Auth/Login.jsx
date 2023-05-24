@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import { loginHandler } from "../../backend/controllers/AuthController";
 
-
 const Login = () => {
   const [inputLogin, setInputLogin] = useState({ email: null, password: null });
-  
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const creds = {
-    email: inputLogin.email,
-    password: inputLogin.password,
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika",
   };
 
-  const loginHandler = async () => {
+  const loginHandler = async (creds) => {
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
@@ -25,11 +23,11 @@ const Login = () => {
       });
 
       const { encodedToken } = await res.json();
-
       localStorage.setItem("encodedToken", encodedToken);
-     
-      if (inputLogin.email && inputLogin.password) {
+
+      if (encodedToken) {
         navigate(location?.state?.from?.pathname ?? "/");
+        
       } else {
         navigate(location);
       }
@@ -45,6 +43,7 @@ const Login = () => {
           <div className="login-element">
             <label>Email:</label>{" "}
             <input
+              value={inputLogin.email}
               class="input-element"
               type="text"
               placeholder="bhumika@gmail.com"
@@ -54,6 +53,7 @@ const Login = () => {
             />
             <label>Password:</label>
             <input
+              value={inputLogin.password}
               class="input-element"
               type="password"
               placeholder="***********"
@@ -61,10 +61,23 @@ const Login = () => {
                 setInputLogin({ ...inputLogin, password: e.target.value })
               }
             />
-            <button className="login-btn" onClick={loginHandler}>
+            <button
+              className="login-btn"
+              onClick={() => loginHandler(inputLogin)}
+            >
               Login
             </button>
+            <button
+              className="login-btn secondary"
+              onClick={() => {
+                setInputLogin(creds);
+                loginHandler(creds);
+              }}
+            >
+              Login as a Guest
+            </button>
           </div>
+
           <p>
             <a href="/root">Forgot password?</a>
           </p>

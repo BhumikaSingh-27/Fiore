@@ -13,10 +13,13 @@ import UserProfile from "./pages/UserProfile/UserProfile";
 import AddressForm from "./pages/UserProfile/AddressForm";
 import Checkout from "./pages/Checkout/Checkout";
 import { AuthWrapper } from "./components/Authenticate/AuthWrapper";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./pages/Home/components/Footer";
 
 function App() {
   return (
     <div className="App">
+       <Navbar />
       <Routes>
         <Route path="/mockman" element={<Mockman />}></Route>
         <Route path="/" element={<Home />}></Route>
@@ -52,6 +55,9 @@ function App() {
         <Route path="/addressform" element={<AddressForm />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
+      {/* <footer>
+        <Footer />
+      </footer> */}
     </div>
   );
 }

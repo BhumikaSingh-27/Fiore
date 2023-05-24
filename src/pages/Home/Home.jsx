@@ -10,7 +10,7 @@ const Home = () => {
     const {state} = useContext(DataContext)
   return (
     <>
-    <Navbar />
+   
       <main>
         <div className="home-hero-image">
           <NavLink to="/product">
@@ -40,9 +40,7 @@ const Home = () => {
     
    
       </div>
-      <footer>
-        <Footer />
-      </footer>
+      
     </>
   );
 };

@@ -21,7 +21,6 @@ const WishlistCart = ({ item }) => {
         theme: "light",
         autoClose: 2000,
       });
-
     } else {
       navigate("/cart");
     }
@@ -29,6 +28,15 @@ const WishlistCart = ({ item }) => {
 
   const removeItem = (item) => {
     removeFromWishlist(item);
+    if (state.wishlistData.length === 0) {
+      toast.warn("Removed from Wishlist", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 2000,
+        // toastId: "warn1", //used to remove duplicate.
+        // theme:"colored"
+      });
+    }
     // toast.warn("Removed from Wishlist", {
     //   position: toast.POSITION.TOP_RIGHT,
     //   theme: "light",
@@ -38,7 +46,7 @@ const WishlistCart = ({ item }) => {
   };
 
   return (
-    <div key={_id}>
+    <div key={_id} className="wishlist-container">
       <div className="cart-product-card">
         <img src={image} alt={name} />
         <div className="cart-product-details">
@@ -71,7 +79,7 @@ const WishlistCart = ({ item }) => {
           </button>
         </div>
       </div>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 };

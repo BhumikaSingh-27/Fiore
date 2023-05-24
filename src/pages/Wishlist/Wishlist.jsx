@@ -8,15 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 const Wishlist = () => {
   const { state } = useContext(DataContext);
 
-  if (state.wishlistData.length === 0) {
-    toast.warn("Removed from Wishlist", {
-      position: toast.POSITION.TOP_RIGHT,
-      theme: "light",
-      autoClose: 2000,
-      toastId: "warn1", //used to remove duplicate.
-      // theme:"colored"
-    });
-  }
   return (
     <div>
       {state.wishlistData.length ? (
@@ -31,7 +22,9 @@ const Wishlist = () => {
           </div>
         </>
       ) : (
+        <div className="wishlist-header">
         <h1>Your Wishlist is empty! 🙁</h1>
+        </div>
       )}
       <ToastContainer />
     </div>

@@ -139,3 +139,7 @@ hr {
     flex-direction: column;
     gap: 2rem
 }
+
+.cart-container-margin {
+    margin-top: 10rem;
+}

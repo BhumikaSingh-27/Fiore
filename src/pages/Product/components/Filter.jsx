@@ -4,7 +4,7 @@ import { DataContext } from "../../../contexts/DataContext";
 
 const Filter = () => {
   const { state, dispatch } = useContext(DataContext);
-  console.log(state.checkRating);
+  console.log(state.searchText);
   return (
     <div>
       <div className="filter-main-body">
@@ -48,7 +48,7 @@ const Filter = () => {
                   dispatch({ type: "SET_ROSES", payload: e.target })
                 }
               />
-              <span>Roses</span>
+              <span> Roses</span>
             </label>
             <label>
               <input
@@ -59,7 +59,7 @@ const Filter = () => {
                   dispatch({ type: "SET_LILIES", payload: e.target })
                 }
               />
-              <span>Lilies</span>
+              <span> Lilies</span>
             </label>
             <label>
               <input
@@ -70,7 +70,7 @@ const Filter = () => {
                   dispatch({ type: "SET_ORCHIDS", payload: e.target })
                 }
               />
-              <span>Orchids</span>
+              <span> Orchids</span>
             </label>
           </div>
         </div>
@@ -79,7 +79,7 @@ const Filter = () => {
           <div className="filter-category-name">
             <label>
               <input
-                checked={state.checkRating[4]}
+                checked={state.checkRating === "4"}
                 type="radio"
                 name="ratings"
                 value="4"
@@ -87,11 +87,11 @@ const Filter = () => {
                   dispatch({ type: "SET_RATING", payload: e.target.value })
                 }
               />
-              <span>4 stars and above</span>
+              <span> 4 stars and above</span>
             </label>
             <label>
               <input
-                checked={state.checkRating[3]}
+                checked={state.checkRating === "3"}
                 type="radio"
                 name="ratings"
                 value="3"
@@ -99,29 +99,31 @@ const Filter = () => {
                   dispatch({ type: "SET_RATING", payload: e.target.value })
                 }
               />
-              <span>3 stars and above</span>
+              <span> 3 stars and above</span>
             </label>
             <label>
               <input
                 type="radio"
                 name="ratings"
+                checked={state.checkRating === "2"}
                 value="2"
                 onChange={(e) =>
                   dispatch({ type: "SET_RATING", payload: e.target.value })
                 }
               />
-              <span>2 stars and above</span>
+              <span> 2 stars and above</span>
             </label>
             <label>
               <input
                 type="radio"
                 name="ratings"
+                checked={state.checkRating === "1"}
                 value="1"
                 onChange={(e) =>
                   dispatch({ type: "SET_RATING", payload: e.target.value })
                 }
               />
-              <span>1 stars and above</span>
+              <span> 1 stars and above</span>
             </label>
           </div>
         </div>
@@ -130,6 +132,7 @@ const Filter = () => {
           <div className="filter-category-name">
             <label>
               <input
+                checked={state.checkSort === "LH"}
                 type="radio"
                 name="price"
                 value="LH"
@@ -142,6 +145,7 @@ const Filter = () => {
             </label>
             <label>
               <input
+                checked={state.checkSort === "HL"}
                 type="radio"
                 name="price"
                 value="HL"
@@ -149,7 +153,7 @@ const Filter = () => {
                   dispatch({ type: "SET_SORTING", payload: e.target.value })
                 }
               />
-              <span>Price - High to Low</span>
+              <span> Price - High to Low</span>
             </label>
           </div>
         </div>

@@ -10,7 +10,8 @@ export const initialValue = {
   priceFilter: null,
   updatedProductData: [],
   checkCategory: { isRoses: false, isLilies: false, isOrchids: false },
-  checkRating: { 4: false, 3: false },
+  checkRating: null,
+  checkSort: null,
 };
 
 export const reducerFn = (state, action) => {
@@ -25,6 +26,11 @@ export const reducerFn = (state, action) => {
         updatedProductData: action.payload,
       };
     }
+
+    case "SEARCH_TEXT": {
+      return { ...state, searchText: action.payload };
+    }
+
     case "SET_PRICE": {
       return { ...state, priceFilter: action.payload };
     }
@@ -72,7 +78,7 @@ export const reducerFn = (state, action) => {
         return {
           ...state,
           catType: [...state.catType, action.payload.value],
-          checkCategory: { ...state.checkCategry, isOrchids: true },
+          checkCategory: { ...state.checkCategory, isOrchids: true },
         };
       } else {
         const filArr = state.catType.filter(
@@ -89,11 +95,11 @@ export const reducerFn = (state, action) => {
       return {
         ...state,
         rating: action.payload,
-        checkRating: { ...state.checkRating, [action.payload]: true },
+        checkRating: action.payload,
       };
     }
     case "SET_SORTING": {
-      return { ...state, sortType: action.payload };
+      return { ...state, sortType: action.payload, checkSort: action.payload };
     }
 
     case "SELECT_DATABY_CATEGORY": {
@@ -121,14 +127,41 @@ export const reducerFn = (state, action) => {
         checkCategory: obj,
       };
     }
+
+    case "SELECT_ROSE": {
+      return {
+        ...state,
+        catType: [...state.catType, action.payload],
+        checkCategory: { ...state.checkCategory, isRoses: true },
+      };
+    }
+
+    case "SELECT_LILIES": {
+      return {
+        ...state,
+        catType: [...state.catType, action.payload],
+        checkCategory: { ...state.checkCategory, isLilies: true },
+      };
+    }
+
+    case "SELECT_ORCHIDS": {
+      return {
+        ...state,
+        catType: [...state.catType, action.payload],
+        checkCategory: { ...state.checkCategory, isOrchids: true },
+      };
+    }
     case "RESET_ALL": {
       return {
         ...state,
         catType: [],
         sortType: null,
         rating: null,
-        priceFilter: null,
+        priceFilter: "",
         checkCategory: { isRoses: false, isLilies: false, isOrchids: false },
+        checkRating: null,
+        checkSort: null,
+        searchText: "",
       };
     }
 

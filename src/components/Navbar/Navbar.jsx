@@ -1,16 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { IoFlower } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
 import { DataContext } from "../../contexts/DataContext";
 
 const Navbar = () => {
-    const {userLogOut} = useContext(DataContext)
-    const location= useLocation()
+  const { userLogOut, state, dispatch } = useContext(DataContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const searchText = (value) => {
+    dispatch({ type: "SEARCH_TEXT", payload: value });
+    navigate("/product");
+  };
+
+  useEffect(() => {
+    dispatch({ type: "RESET_ALL" });
+  }, []);
+  
   return (
     <div className="navbar">
       <NavLink className="not-a-link" to="/">
@@ -23,13 +33,19 @@ const Navbar = () => {
       <div className="search-container">
         <div>
           <em></em>
-          <input className="nav-input" type="text" placeholder="Search" />
+          <input
+            className="nav-input"
+            type="text"
+            placeholder="Search"
+            value={state.searchText}
+            onChange={(e) => searchText(e.target.value)}
+          />
         </div>
       </div>
 
       <div className="navbar-nav">
         <NavLink className="not-a-link navlink" to="/login">
-          <div className="login" onClick={()=>userLogOut(location)}>
+          <div className="login" onClick={() => userLogOut(location)}>
             {" "}
             {localStorage.getItem("encodedToken") ? "Logout" : "Login"}{" "}
           </div>

@@ -11,7 +11,7 @@ const Cart = () => {
     <div>
       {/* <Navbar /> */}
       {state?.cartData.length ? (
-        <>
+        <div className="cart-container-margin">
           <div className="cart-header">
             <h1>My Cart ({state.cartData.length})</h1>
           </div>
@@ -26,9 +26,11 @@ const Cart = () => {
             </div>
             <CartPrice />
           </div>
-        </>
+        </div>
       ) : (
-        <h1>Your Cart is Empty! 🙁</h1>
+        <div className="cart-container-margin">
+          <h1>Your Cart is Empty! 🙁</h1>
+        </div>
       )}
     </div>
   );
