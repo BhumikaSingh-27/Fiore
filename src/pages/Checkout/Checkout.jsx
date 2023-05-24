@@ -12,6 +12,7 @@ const Checkout = () => {
       <h2>Checkout</h2>
       <div className="main-checkout-body">
         <div className="show-checkout-container">
+          <div className="address-flex">
           {
 address.addressData?.map((add)=><div className="checkout-address-container">
 
@@ -19,7 +20,7 @@ address.addressData?.map((add)=><div className="checkout-address-container">
 
 </div>)
           }
-          
+        </div>  
           <CheckoutCard />
         </div>
       </div>

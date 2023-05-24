@@ -39,11 +39,9 @@ const Product = () => {
 
   return (
     <>
-      <div
-        style={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}
-      >
+      <div >
         <div className="product-page">
-          <div>
+          <div className="filter-body">
             <Filter />
           </div>
           <div className="product-list">

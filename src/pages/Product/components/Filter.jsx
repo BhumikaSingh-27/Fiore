@@ -4,7 +4,7 @@ import { DataContext } from "../../../contexts/DataContext";
 
 const Filter = () => {
   const { state, dispatch } = useContext(DataContext);
-  console.log(state.searchText);
+  
   return (
     <div>
       <div className="filter-main-body">

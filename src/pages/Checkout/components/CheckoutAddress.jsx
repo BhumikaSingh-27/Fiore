@@ -3,12 +3,25 @@ import "./Checkout.css";
 import { AddressContext } from "../../../contexts/AddressContext";
 
 const CheckoutAddress = ({ add }) => {
+  const { setCheckoutAddress } = useContext(AddressContext);
+
+  const setAddress = () => {
+    const { id, ...rest } = add;
+    const addArray = Object.values(rest);
+    setCheckoutAddress(addArray.join(" "));
+  };
+  
   return (
     <div className="address-container">
       <label>
         {" "}
         <div className="address-bar">
-          <input type="radio" name="address" />
+          <input
+            type="radio"
+            name="address"
+            value={add.id}
+            onChange={setAddress}
+          />
 
           <div className="checkout-flex-column start">
             <div>

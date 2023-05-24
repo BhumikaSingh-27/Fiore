@@ -27,7 +27,6 @@ const Login = () => {
 
       if (encodedToken) {
         navigate(location?.state?.from?.pathname ?? "/");
-        
       } else {
         navigate(location);
       }
@@ -50,6 +49,7 @@ const Login = () => {
               onChange={(e) =>
                 setInputLogin({ ...inputLogin, email: e.target.value })
               }
+              required
             />
             <label>Password:</label>
             <input
@@ -60,6 +60,7 @@ const Login = () => {
               onChange={(e) =>
                 setInputLogin({ ...inputLogin, password: e.target.value })
               }
+              required
             />
             <button
               className="login-btn"

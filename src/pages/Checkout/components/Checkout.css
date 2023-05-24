@@ -9,17 +9,18 @@
 .container-margin {
     margin-bottom: 0.5rem;
     margin-top: 0px;
-    
+
 }
 
 .checkout-container h3 {
     padding: 0.5rem 0rem;
 }
 
-.container-margin h3{
-    padding:0px;
+.container-margin h3 {
+    padding: 0px;
     margin-top: 0px;
 }
+
 .checkout-flex {
     display: flex;
     justify-content: space-between;
@@ -86,4 +87,9 @@
 
 .checkout-body {
     margin-top: 2rem;
+}
+
+.address-flex {
+    display: flex;
+    flex-direction: column;
 }

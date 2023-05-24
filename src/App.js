@@ -19,7 +19,7 @@ import Footer from "./pages/Home/components/Footer";
 function App() {
   return (
     <div className="App">
-       <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/mockman" element={<Mockman />}></Route>
         <Route path="/" element={<Home />}></Route>
@@ -55,9 +55,9 @@ function App() {
         <Route path="/addressform" element={<AddressForm />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
-      {/* <footer>
+      <footer>
         <Footer />
-      </footer> */}
+      </footer>
     </div>
   );
 }

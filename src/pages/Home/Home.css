@@ -20,10 +20,10 @@
 }
 
 footer {
-    position: relative;
-    width:100%;
+    position: absolute;
+    width: 100%;
     height: 20vh;
-    bottom: 0vh;
+    top: 100%;
     background-color: var(--primary-color);
     color: var(--secondary-color);
     font-weight: 699;
@@ -48,8 +48,8 @@ footer {
     bottom: 20px;
 }
 
-.mid-heading{
+.mid-heading {
     position: relative;
-    bottom:6rem;
+    bottom: 6rem;
     font-size: 2rem;
 }

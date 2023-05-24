@@ -82,19 +82,21 @@
     border-left: 1px solid var(--secondary-color);
     padding: 0.5rem;
     display: flex;
-    gap:2px;
+    gap: 2px;
     justify-content: center;
     align-items: flex-start;
-    margin-bottom: 1rem;;
+    margin-bottom: 1rem;
+    ;
 }
-.space-icons p{
+
+.space-icons p {
     padding-top: 0.5rem;
 }
 
-.ul-align-icons{
+.ul-align-icons {
     display: flex;
     list-style: none;
-   
+
 }
 
 .item-info li {
@@ -135,4 +137,9 @@
     gap: 2rem;
     margin-top: 2rem;
     flex-wrap: wrap;
+    padding-bottom: 20vh;
+}
+
+.filter-body {
+    border-right: 1px solid black;
 }

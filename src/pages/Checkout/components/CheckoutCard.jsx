@@ -64,7 +64,6 @@ const CheckoutCard = () => {
         <hr />
         <div className="checkout-flex-column">
           <div className="checkout-flex-column start">
-            <div>UserName</div>
             <div className="address">{checkoutAddress}</div>
           </div>
           <button className="add-btn checkout">Place order</button>
