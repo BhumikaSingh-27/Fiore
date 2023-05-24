@@ -129,26 +129,32 @@ export const reducerFn = (state, action) => {
     }
 
     case "SELECT_ROSE": {
+      const obj = { isRoses: true, isLilies: false, isOrchids: false };
+      const arr = [action.payload];
       return {
         ...state,
-        catType: [...state.catType, action.payload],
-        checkCategory: { ...state.checkCategory, isRoses: true },
+        catType: arr,
+        checkCategory: obj,
       };
     }
 
     case "SELECT_LILIES": {
+      const obj = { isRoses: false, isLilies: true, isOrchids: false };
+      const arr = [action.payload];
       return {
         ...state,
-        catType: [...state.catType, action.payload],
-        checkCategory: { ...state.checkCategory, isLilies: true },
+        catType: arr,
+        checkCategory: obj,
       };
     }
 
     case "SELECT_ORCHIDS": {
+      const obj = { isRoses: false, isLilies: false, isOrchids: true };
+      const arr = [action.payload];
       return {
         ...state,
-        catType: [...state.catType, action.payload],
-        checkCategory: { ...state.checkCategory, isOrchids: true },
+        catType: arr,
+        checkCategory: obj,
       };
     }
     case "RESET_ALL": {
