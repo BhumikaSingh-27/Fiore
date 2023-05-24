@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import Category from "./components/Category";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
-import Footer from "./components/Footer";
 import { DataContext } from "../../contexts/DataContext";
-import Navbar from "../../components/Navbar/Navbar";
+
 
 const Home = () => {
     const {state} = useContext(DataContext)
