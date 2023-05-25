@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import { AuthWrapper } from "./components/Authenticate/AuthWrapper";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./pages/Home/components/Footer";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -55,9 +56,11 @@ function App() {
         <Route path="/addressform" element={<AddressForm />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
       </Routes>
+
       <footer>
         <Footer />
       </footer>
+      <ToastContainer />
     </div>
   );
 }

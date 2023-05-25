@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import WishlistCart from "./components/WishlistCart";
 import "./components/Wishlist.css";
 import { DataContext } from "../../contexts/DataContext";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Wishlist = () => {
@@ -26,7 +25,6 @@ const Wishlist = () => {
         <h1>Your Wishlist is empty! 🙁</h1>
         </div>
       )}
-      <ToastContainer />
     </div>
   );
 };

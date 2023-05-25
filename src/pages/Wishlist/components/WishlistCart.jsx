@@ -3,7 +3,7 @@ import "./Wishlist.css";
 import "../../Cart/Cart.css";
 import { DataContext } from "../../../contexts/DataContext";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const WishlistCart = ({ item }) => {
@@ -20,6 +20,7 @@ const WishlistCart = ({ item }) => {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
+        className: "toast-align",
       });
     } else {
       navigate("/cart");
@@ -28,21 +29,13 @@ const WishlistCart = ({ item }) => {
 
   const removeItem = (item) => {
     removeFromWishlist(item);
-    if (state.wishlistData.length === 0) {
-      toast.warn("Removed from Wishlist", {
-        position: toast.POSITION.TOP_RIGHT,
-        theme: "light",
-        autoClose: 2000,
-        // toastId: "warn1", //used to remove duplicate.
-        // theme:"colored"
-      });
-    }
-    // toast.warn("Removed from Wishlist", {
-    //   position: toast.POSITION.TOP_RIGHT,
-    //   theme: "light",
-    //   autoClose: 2000,
-    //   // theme:"colored"
-    // });
+    toast.warn("Removed from Wishlist", {
+      position: toast.POSITION.TOP_RIGHT,
+      theme: "light",
+      autoClose: 2000,
+      className: "toast-align",
+      // theme:"colored"
+    });
   };
 
   return (
@@ -79,7 +72,6 @@ const WishlistCart = ({ item }) => {
           </button>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import "../Cart/Cart.css";
 import { FaStar } from "react-icons/fa";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
@@ -33,6 +33,7 @@ const ProductDetails = () => {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
+        className: "toast-align",
       });
     }
   };
@@ -46,6 +47,7 @@ const ProductDetails = () => {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
+        className: "toast-align",
       });
     }
   };
@@ -123,7 +125,7 @@ const ProductDetails = () => {
             <button className="add-btn" onClick={() => add(prodInfo)}>
               {itemInCart ? "Go To Cart" : "Add to cart"}
             </button>
-            <ToastContainer />
+        
           </div>
         </div>
       </div>

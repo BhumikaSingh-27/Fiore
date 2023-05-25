@@ -13,3 +13,7 @@
 .wishlist-header {
     margin-top: 10rem;
 }
+
+.Toastify__toast-body div {
+    text-align: start;
+}

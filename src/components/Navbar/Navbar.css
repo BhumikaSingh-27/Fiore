@@ -1,13 +1,13 @@
-
 .not-a-link {
     text-decoration: none;
 }
-.navlink{
+
+.navlink {
     color: black;
 }
 
-.navlink:hover{
-    color:var(--primary-color)
+.navlink:hover {
+    color: var(--primary-color)
 }
 
 .navbar {
@@ -90,10 +90,29 @@
 }
 
 .icon-style {
+    display: flex;
     font-size: 1.5rem;
     padding-top: 1rem;
 }
 
 .icon-style:hover {
     color: var(--primary-color);
+}
+
+.navbar-counter {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: .8rem;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    padding-top: .1rem;
+    left: 17px;
+    top: 10px;
+}
+
+.nav-counter-container {
+    position: relative;
 }

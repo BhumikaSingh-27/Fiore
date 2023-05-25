@@ -5,15 +5,20 @@ import { FaHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../../../contexts/DataContext";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 const ProductCard = ({ flower }) => {
   const { _id, name, image, price, discount, rating } = flower;
 
-  const { state, addToCart, addToWishlist, removeFromWishlist } =
-    useContext(DataContext);
+  const {
+    state,
+    addToCart,
+    addToWishlist,
+    removeFromWishlist,
+    isClicked,
+    setIsClicked,
+  } = useContext(DataContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -33,9 +38,11 @@ const ProductCard = ({ flower }) => {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
+        className: "toast-align",
         // theme:"colored"
       });
     }
+    setIsClicked((prev) => ({ ...prev, wish: true }));
   };
 
   const setCart = (location, flower) => {
@@ -45,16 +52,16 @@ const ProductCard = ({ flower }) => {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 2000,
+        className: "toast-align",
       });
     } else {
       navigate("/cart");
     }
+    setIsClicked((prev) => ({ ...prev, cart: true }));
   };
 
+  console.log(isClicked);
   const wishlistItem = state?.wishlistData?.find((item) => item._id === _id);
-  // console.log("inside wishlist", wishlistItem?.wishlist);
-  // console.log("inside flower", flower);
-
   const cartItem = state?.cartData.find((item) => item._id === _id);
 
   return (
@@ -87,17 +94,9 @@ const ProductCard = ({ flower }) => {
             <p className="cross-text">&#x20B9;{price} </p>
             <span>({Math.round(((price - discount) / price) * 100)}%OFF)</span>
           </div>
-          {/* <div class="product-price-details">
-        <div className="price-info">
-            <h1>&#x20B9;7000</h1>
-            <p className="cross-price">&#x20B9;200 </p> <span>(30%OFF)</span>
-          </div>
-          </div> */}
-          {/* {console.log(flower)} */}
           <button className="add-btn" onClick={() => setCart(location, flower)}>
             <FaShoppingCart /> {cartItem ? "Go to Cart" : "Add to Cart"}
           </button>
-          <ToastContainer />
         </div>
       </div>
     </>
