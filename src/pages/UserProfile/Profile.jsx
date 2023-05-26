@@ -12,14 +12,14 @@ const Profile = () => {
         <hr />
         <div className="align-center">
           {inputSignUp.firstName && inputSignUp.lastName ? (
-            <>
+            <div style={{ textAlign: "start" }}>
               <p>
                 <b>full name: </b>
                 {inputSignUp.firstName} {inputSignUp.lastName}
                 <br />
                 <b>email:</b> {inputSignUp.email}
               </p>
-            </>
+            </div>
           ) : (
             <>
               <div>

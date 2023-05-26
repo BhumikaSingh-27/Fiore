@@ -142,6 +142,7 @@
 
 .filter-body {
     border-right: 1px solid black;
+    flex-grow: 1;
 }
 
 .toast-align {

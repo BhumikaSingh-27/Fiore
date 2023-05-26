@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const WishlistCart = ({ item }) => {
-  const { state, addItemToCart, removeFromWishlist } = useContext(DataContext);
+  const { state, addItemToCart, removeFromWishlist,  } =
+    useContext(DataContext);
   const navigate = useNavigate();
 
   const { _id, name, image, discount, price } = item;
@@ -19,7 +20,7 @@ const WishlistCart = ({ item }) => {
       toast.success("Added to Cart", {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
-        autoClose: 2000,
+        autoClose: 1000,
         className: "toast-align",
       });
     } else {
@@ -29,10 +30,11 @@ const WishlistCart = ({ item }) => {
 
   const removeItem = (item) => {
     removeFromWishlist(item);
+    // setIsClicked((prev) => ({ ...prev, wish: true }));
     toast.warn("Removed from Wishlist", {
       position: toast.POSITION.TOP_RIGHT,
       theme: "light",
-      autoClose: 2000,
+      autoClose: 1000,
       className: "toast-align",
       // theme:"colored"
     });

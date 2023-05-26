@@ -3,6 +3,7 @@ import "../Cart.css";
 import "../../Product/Product.css";
 import { DataContext } from "../../../contexts/DataContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CartProduct = ({ item }) => {
   const {
@@ -22,6 +23,13 @@ const CartProduct = ({ item }) => {
     if (!getItem) {
       addItemToWishlist(item);
       // removeItemFromCart(_id);
+      toast.success("Added to Wishlist", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 1000,
+        className: "toast-align",
+        // theme:"colored"
+      });
     } else {
       navigate("/wishlist");
     }
@@ -72,7 +80,16 @@ const CartProduct = ({ item }) => {
 
           <button
             className="add-btn remove-btn"
-            onClick={() => removeItemFromCart(_id)}
+            onClick={async () => {
+              await removeItemFromCart(_id);
+              toast.warn("Removed from Cart", {
+                position: toast.POSITION.TOP_RIGHT,
+                theme: "light",
+                autoClose: 1000,
+                className: "toast-align",
+                // theme:"colored"
+              });
+            }}
           >
             Remove from Cart
           </button>

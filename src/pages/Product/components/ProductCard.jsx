@@ -16,51 +16,55 @@ const ProductCard = ({ flower }) => {
     addToCart,
     addToWishlist,
     removeFromWishlist,
-    isClicked,
-    setIsClicked,
+   
   } = useContext(DataContext);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const setWishlist = (location, flower) => {
-    if (!wishlistItem) {
-      addToWishlist(location, flower);
-      toast.success("Added to Wishlist", {
-        position: toast.POSITION.TOP_RIGHT,
-        theme: "light",
-        autoClose: 2000,
-        className: "toast-align",
-      });
-    } else {
-      removeFromWishlist(flower);
-      toast.warn("Removed from Wishlist", {
-        position: toast.POSITION.TOP_RIGHT,
-        theme: "light",
-        autoClose: 2000,
-        className: "toast-align",
-        // theme:"colored"
-      });
+    if( localStorage.getItem("encodedToken")){
+      if (!wishlistItem ) {
+        addToWishlist(location, flower);
+        toast.success("Added to Wishlist", {
+          position: toast.POSITION.TOP_RIGHT,
+          theme: "light",
+          autoClose: 1000,
+          className: "toast-align",
+        });
+      } else {
+        removeFromWishlist(flower);
+        toast.warn("Removed from Wishlist", {
+          position: toast.POSITION.TOP_RIGHT,
+          theme: "light",
+          autoClose: 1000,
+          className: "toast-align",
+          // theme:"colored"
+        });
+      }
+      // setIsClicked((prev) => ({ ...prev, wish: true }));
+    }else{
+      navigate("/login")
     }
-    setIsClicked((prev) => ({ ...prev, wish: true }));
+    
   };
 
   const setCart = (location, flower) => {
-    if (!cartItem) {
+    if (!cartItem && localStorage.getItem("encodedToken")) {
       addToCart(location, flower);
       toast.success("Item added to Cart!", {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
-        autoClose: 2000,
+        autoClose: 1000,
         className: "toast-align",
       });
     } else {
       navigate("/cart");
     }
-    setIsClicked((prev) => ({ ...prev, cart: true }));
+    // setIsClicked((prev) => ({ ...prev, cart: true }));
   };
 
-  console.log(isClicked);
+  // console.log(isClicked);
   const wishlistItem = state?.wishlistData?.find((item) => item._id === _id);
   const cartItem = state?.cartData.find((item) => item._id === _id);
 

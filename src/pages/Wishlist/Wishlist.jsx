@@ -15,14 +15,14 @@ const Wishlist = () => {
             <h1>My Wishlist ({state.wishlistData.length})</h1>
           </div>
           <div className="wishlist-body">
-            {state?.wishlistData.map((item) => (
+            {state.wishlistData.map((item) => (
               <WishlistCart item={item} />
             ))}
           </div>
         </>
       ) : (
         <div className="wishlist-header">
-        <h1>Your Wishlist is empty! 🙁</h1>
+          <h1>Your Wishlist is empty! 🙁</h1>
         </div>
       )}
     </div>

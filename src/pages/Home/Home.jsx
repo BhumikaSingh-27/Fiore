@@ -6,14 +6,14 @@ import { DataContext } from "../../contexts/DataContext";
 
 
 const Home = () => {
-    const {state} = useContext(DataContext)
+    const {state,getProductData} = useContext(DataContext)
   return (
     <>
    
       <main>
         <div className="home-hero-image">
           <NavLink to="/product">
-            <img
+            <img onClick={()=>getProductData()}
             // src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1684384979/flower1_yxr75v.png"
               src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt32prodlp/banners/same_day_delivery_d_interflora_banner_20230427.jpg"
               alt=""

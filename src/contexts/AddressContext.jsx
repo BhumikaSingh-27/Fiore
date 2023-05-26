@@ -10,7 +10,7 @@ export const AddressContextProvider = ({ children }) => {
 
   const defaultAddress = [
     {
-      id:1,
+      id: 1,
       name: "Bhumika Singh",
       houseNo: "savita sadan, road no 18/4A",
       city: "Patna",
@@ -25,6 +25,7 @@ export const AddressContextProvider = ({ children }) => {
     (() => {
       try {
         addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
+        localStorage.setItem("Address", JSON.stringify(defaultAddress));
       } catch (e) {
         console.log(e);
       }

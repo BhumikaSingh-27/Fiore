@@ -32,7 +32,7 @@ const ProductDetails = () => {
       toast.success("Item added to Cart!", {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
-        autoClose: 2000,
+        autoClose: 1000,
         className: "toast-align",
       });
     }
@@ -46,7 +46,7 @@ const ProductDetails = () => {
       toast.success("Item added to Wishlist!", {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
-        autoClose: 2000,
+        autoClose: 1000,
         className: "toast-align",
       });
     }

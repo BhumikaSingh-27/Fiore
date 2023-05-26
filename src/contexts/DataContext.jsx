@@ -2,12 +2,13 @@ import { createContext, useEffect, useReducer, useState } from "react";
 import { initialValue, reducerFn } from "../reducer/reducer";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { Circles } from "react-loader-spinner";
+
 export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
-  const [isClicked, setIsClicked] = useState({ cart: false, wish: false });
+  // const [isClicked, setIsClicked] = useState({ cart: false, wish: false });
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -37,9 +38,11 @@ export const DataContextProvider = ({ children }) => {
 
   const getProductData = async () => {
     try {
+      setLoading(true);
       const response = await fetch("/api/products");
       const data = await response.json();
       dispatch({ type: "GET_PRODUCT_DATA", payload: data.products });
+      setLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -62,6 +65,7 @@ export const DataContextProvider = ({ children }) => {
         console.log(e);
       }
     })();
+    
   };
 
   const addItemToCart = async (item) => {
@@ -81,6 +85,7 @@ export const DataContextProvider = ({ children }) => {
 
         const data = await res.json();
         //   console.log(data.cart);
+
         dispatch({ type: "ADD_ITEM", payload: data.cart });
       } catch (e) {
         console.log(e);
@@ -96,25 +101,24 @@ export const DataContextProvider = ({ children }) => {
     }
   };
 
-  const removeFromWishlist = (flower) => {
-    (async () => {
-      try {
-        const res = await fetch(`/api/user/wishlist/${flower._id}`, {
-          method: "DELETE",
-          headers: {
-            authorization: localStorage.getItem("encodedToken"),
-          },
-        });
+  const removeFromWishlist = async (flower) => {
+    try {
+      const res = await fetch(`/api/user/wishlist/${flower._id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: localStorage.getItem("encodedToken"),
+        },
+      });
 
-        const data = await res.json();
-        dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
-      } catch (e) {
-        console.log(e);
-      }
-    })();
+      const data = await res.json();
+      dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
+    } catch (e) {
+      console.log(e);
+    }
     if (state.wishlistData.length === 0) {
     }
   };
+
   const addItemToWishlist = async (item) => {
     // const alter = { ...item, wishlist: true };
     const extItem = state?.wishlistData.find(({ _id }) => _id === item._id);
@@ -130,6 +134,7 @@ export const DataContextProvider = ({ children }) => {
         });
 
         const data = await res.json();
+        localStorage.setItem("wish", JSON.stringify(data));
         dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
       } catch (e) {
         console.log(e);
@@ -157,6 +162,7 @@ export const DataContextProvider = ({ children }) => {
           type: "increment",
         },
       };
+
       const response = await fetch(`/api/user/cart/${itemId}`, {
         method: "POST",
         headers: {
@@ -195,7 +201,6 @@ export const DataContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    <Circles />;
     getCategoryData();
     getProductData();
   }, []);
@@ -218,8 +223,8 @@ export const DataContextProvider = ({ children }) => {
         decrementItem,
         totalPrice,
         discount,
-        isClicked,
-        setIsClicked,
+        loading,
+        getProductData,
       }}
     >
       {children}

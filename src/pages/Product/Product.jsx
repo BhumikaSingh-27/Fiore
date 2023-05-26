@@ -3,9 +3,10 @@ import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import "./Product.css";
 import { DataContext } from "../../contexts/DataContext";
+import { Circles } from "react-loader-spinner";
 
 const Product = () => {
-  const { state } = useContext(DataContext);
+  const { state, loading } = useContext(DataContext);
 
   const searchedData = state.searchText
     ? state.productData.filter(({ name }) =>
@@ -37,15 +38,17 @@ const Product = () => {
 
   return (
     <>
-      <div >
+      <div>
         <div className="product-page">
           <div className="filter-body">
             <Filter />
           </div>
           <div className="product-list">
-            {finalFilteredData.map((flower) => (
-              <ProductCard flower={flower} />
-            ))}
+            {loading && <Circles />}
+            {
+              finalFilteredData.map((flower) => (
+                <ProductCard flower={flower} />
+              ))}
           </div>
         </div>
         {/* <footer>
