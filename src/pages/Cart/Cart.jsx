@@ -17,12 +17,14 @@ const Cart = () => {
           </div>
 
           <div className="cart-main">
-            <div className="cart-list">
-              {state?.cartData.map((item) => (
-                <div key={item._id}>
-                  <CartProduct item={item} />
-                </div>
-              ))}
+            <div className="cart-product-list">
+              <div className="cart-list">
+                {state?.cartData.map((item) => (
+                  <div key={item._id}>
+                    <CartProduct item={item} />
+                  </div>
+                ))}
+              </div>
             </div>
             <CartPrice />
           </div>

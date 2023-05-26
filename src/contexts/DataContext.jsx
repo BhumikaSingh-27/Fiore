@@ -2,12 +2,13 @@ import { createContext, useEffect, useReducer, useState } from "react";
 import { initialValue, reducerFn } from "../reducer/reducer";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { Circles } from "react-loader-spinner";
 export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
-const [isClicked, setIsClicked] = useState({cart:false,wish:false})
- 
+  const [isClicked, setIsClicked] = useState({ cart: false, wish: false });
+
   const navigate = useNavigate();
 
   const [inputSignUp, setInputSignUp] = useState({
@@ -111,8 +112,7 @@ const [isClicked, setIsClicked] = useState({cart:false,wish:false})
         console.log(e);
       }
     })();
-    if(state.wishlistData.length === 0){
-      
+    if (state.wishlistData.length === 0) {
     }
   };
   const addItemToWishlist = async (item) => {
@@ -195,6 +195,7 @@ const [isClicked, setIsClicked] = useState({cart:false,wish:false})
   };
 
   useEffect(() => {
+    <Circles />;
     getCategoryData();
     getProductData();
   }, []);
@@ -217,7 +218,8 @@ const [isClicked, setIsClicked] = useState({cart:false,wish:false})
         decrementItem,
         totalPrice,
         discount,
-        isClicked, setIsClicked
+        isClicked,
+        setIsClicked,
       }}
     >
       {children}

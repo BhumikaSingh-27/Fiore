@@ -21,7 +21,7 @@ const CartProduct = ({ item }) => {
   const addToWishlistFromCart = (item) => {
     if (!getItem) {
       addItemToWishlist(item);
-      removeItemFromCart(_id);
+      // removeItemFromCart(_id);
     } else {
       navigate("/wishlist");
     }

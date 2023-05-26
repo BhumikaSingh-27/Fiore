@@ -137,9 +137,15 @@ hr {
 .cart-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem
+    gap: 2rem;
+    /* padding-bottom: 3rem; */
 }
 
 .cart-container-margin {
     margin-top: 10rem;
+}
+
+.cart-product-list {
+    padding-bottom: 4rem;
+    margin-bottom: 3rem;
 }
