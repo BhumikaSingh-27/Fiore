@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Category from "./components/Category";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
@@ -6,7 +6,10 @@ import { DataContext } from "../../contexts/DataContext";
 
 
 const Home = () => {
-    const {state,getProductData} = useContext(DataContext)
+    const {state,getProductData,dispatch} = useContext(DataContext)
+    useEffect(() => {
+      dispatch({ type: "RESET_ALL" });
+    }, []);
   return (
     <>
    

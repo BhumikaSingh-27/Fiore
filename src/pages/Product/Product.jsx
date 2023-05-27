@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import "./Product.css";
@@ -6,7 +6,7 @@ import { DataContext } from "../../contexts/DataContext";
 import { Circles } from "react-loader-spinner";
 
 const Product = () => {
-  const { state, loading } = useContext(DataContext);
+  const { state, dispatch, loading } = useContext(DataContext);
 
   const searchedData = state.searchText
     ? state.productData.filter(({ name }) =>
@@ -44,11 +44,14 @@ const Product = () => {
             <Filter />
           </div>
           <div className="product-list">
-            {loading && <Circles />}
-            {
-              finalFilteredData.map((flower) => (
-                <ProductCard flower={flower} />
-              ))}
+            {loading && (
+              <div className="loader">
+                <Circles color={"red"} />
+              </div>
+            )}
+            {finalFilteredData.map((flower) => (
+              <ProductCard flower={flower} />
+            ))}
           </div>
         </div>
         {/* <footer>

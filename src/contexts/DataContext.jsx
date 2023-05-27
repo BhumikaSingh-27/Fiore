@@ -20,10 +20,11 @@ export const DataContextProvider = ({ children }) => {
   });
 
   // calculating total price and discount
-  const totalPrice = state.cartData.reduce(
+  const totalPrice = state?.cartData?.reduce(
     (acc, cur) => cur.price * cur.qty + acc,
     0
   );
+  console.log(totalPrice)
   const discount = state.cartData.reduce((acc, cur) => cur.discount + acc, 0);
 
   const getCategoryData = async () => {

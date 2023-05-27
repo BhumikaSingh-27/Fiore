@@ -102,34 +102,8 @@ export const reducerFn = (state, action) => {
       return { ...state, sortType: action.payload, checkSort: action.payload };
     }
 
-    case "SELECT_DATABY_CATEGORY": {
-      const arr = Object.keys(state.checkCategory);
-      console.log(arr);
-      const newValue = arr.reduce(
-        (acc, cur) => (cur.includes(action.payload) ? acc + cur : acc),
-        ""
-      );
-      const obj = { ...state.checkCategory, [newValue]: true };
-      console.log(obj);
-
-      const catData = state.productData.filter((ele) => {
-        for (let i in arr) {
-          return obj[i];
-        }
-        return true;
-      });
-
-      console.log(catData);
-
-      return {
-        ...state,
-        updatedProductData: catData,
-        checkCategory: obj,
-      };
-    }
-
     case "SELECT_ROSE": {
-      const obj = { isRoses: true, isLilies: false, isOrchids: false };
+      const obj = { ...state.checkCategory,isRoses: true  };
       const arr = [action.payload];
       return {
         ...state,
@@ -139,7 +113,7 @@ export const reducerFn = (state, action) => {
     }
 
     case "SELECT_LILIES": {
-      const obj = { isRoses: false, isLilies: true, isOrchids: false };
+      const obj = { ...state.checkCategory, isLilies: true };
       const arr = [action.payload];
       return {
         ...state,
@@ -149,7 +123,7 @@ export const reducerFn = (state, action) => {
     }
 
     case "SELECT_ORCHIDS": {
-      const obj = { isRoses: false, isLilies: false, isOrchids: true };
+      const obj = { ...state.checkCategory, isOrchids: true };
       const arr = [action.payload];
       return {
         ...state,

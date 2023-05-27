@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Profile from "./Profile";
 import Address from "./Address";
 import { AddressContext } from "../../contexts/AddressContext";
 
 const UserProfile = () => {
-  const { address } = useContext(AddressContext);
+  const { address, setCheckoutAddress } = useContext(AddressContext);
   console.log("save", address.addressData);
+
+  useEffect(() => {
+    setCheckoutAddress("Select the Address");
+  }, []);
   return (
     <div className="profile-body">
       <h1>Account</h1>

@@ -5,7 +5,7 @@ export const AddressContext = createContext();
 
 export const AddressContextProvider = ({ children }) => {
   const [address, addressDispatch] = useReducer(orderReducerFn, initialAddress);
-  const [checkoutAddress, setCheckoutAddress] = useState(null);
+  const [checkoutAddress, setCheckoutAddress] = useState("Select the address");
   console.log(address);
 
   const defaultAddress = [
@@ -25,7 +25,6 @@ export const AddressContextProvider = ({ children }) => {
     (() => {
       try {
         addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
-        localStorage.setItem("Address", JSON.stringify(defaultAddress));
       } catch (e) {
         console.log(e);
       }

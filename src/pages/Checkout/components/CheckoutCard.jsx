@@ -6,6 +6,7 @@ import { AddressContext } from "../../../contexts/AddressContext";
 const CheckoutCard = () => {
   const { state, totalPrice, discount } = useContext(DataContext);
   const { checkoutAddress } = useContext(AddressContext);
+  console.log(checkoutAddress);
   return (
     <>
       <div className="checkout-container">
@@ -64,7 +65,10 @@ const CheckoutCard = () => {
         <hr />
         <div className="checkout-flex-column">
           <div className="checkout-flex-column start">
-            <div className="address">{checkoutAddress}</div>
+            <div className="address">
+              {/* {checkoutAddress} */}
+              {checkoutAddress}
+            </div>
           </div>
           <button className="add-btn checkout">Place order</button>
         </div>

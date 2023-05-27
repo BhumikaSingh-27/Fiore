@@ -1,16 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Checkout.css";
 import { AddressContext } from "../../../contexts/AddressContext";
 
 const CheckoutAddress = ({ add }) => {
   const { setCheckoutAddress } = useContext(AddressContext);
+  // const [radio, setRadio] = useState(false)
 
-  const setAddress = () => {
+  const setAddress = (e) => {
     const { id, ...rest } = add;
     const addArray = Object.values(rest);
+    console.log(addArray);
     setCheckoutAddress(addArray.join(" "));
+    // e.target.checked=true
   };
-  
+
+  // useEffect(() => {
+  //   setAddress();
+  // }, []);
+
   return (
     <div className="address-container">
       <label>
@@ -20,7 +27,8 @@ const CheckoutAddress = ({ add }) => {
             type="radio"
             name="address"
             value={add.id}
-            onChange={setAddress}
+            onChange={() => setAddress()}
+            
           />
 
           <div className="checkout-flex-column start">
