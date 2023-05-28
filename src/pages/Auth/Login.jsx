@@ -28,6 +28,9 @@ const Login = () => {
         body: JSON.stringify(creds),
       });
 
+      if (res.status !== 200) {
+        throw res.statusText;
+      }
       const { encodedToken } = await res.json();
       localStorage.setItem("encodedToken", encodedToken);
 
@@ -51,7 +54,7 @@ const Login = () => {
               value={inputLogin.email}
               class="input-element"
               type="text"
-              placeholder="bhumika@gmail.com"
+              placeholder="Enter email"
               onChange={(e) =>
                 setInputLogin({ ...inputLogin, email: e.target.value })
               }

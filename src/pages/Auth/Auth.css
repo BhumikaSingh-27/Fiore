@@ -65,7 +65,9 @@
     flex-grow: 1;
     cursor: pointer;
 }
-
+.login-btn:hover{
+    box-shadow: 0 2px 4px 4px var(--secondary-color);
+}
 .secondary {
     background-color: var(--secondary-color);
     color: black;

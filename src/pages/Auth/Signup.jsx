@@ -34,6 +34,10 @@ const Signup = () => {
         body: JSON.stringify(creds),
       });
 
+      if (response.status !== 200) {
+        throw response.statusText;
+      }
+
       const data = await response.json();
       const { encodedToken } = data;
       localStorage.setItem("encodedToken", encodedToken);
@@ -42,6 +46,7 @@ const Signup = () => {
       console.log(e);
     }
   };
+
 
   return (
     <div>
@@ -53,7 +58,7 @@ const Signup = () => {
             <input
               className="input-element"
               type="text"
-              placeholder="Mr. ABC"
+              placeholder="Enter first name"
               onChange={(e) =>
                 setInputSignUp({ ...inputSignUp, firstName: e.target.value })
               }
@@ -62,7 +67,7 @@ const Signup = () => {
             <input
               className="input-element"
               type="text"
-              placeholder="singh"
+              placeholder="Enter last name"
               onChange={(e) =>
                 setInputSignUp({ ...inputSignUp, lastName: e.target.value })
               }
@@ -71,7 +76,7 @@ const Signup = () => {
             <input
               className="input-element"
               type="text"
-              placeholder="bhumika@gmail.com"
+              placeholder="Enter email"
               onChange={(e) =>
                 setInputSignUp({ ...inputSignUp, email: e.target.value })
               }
