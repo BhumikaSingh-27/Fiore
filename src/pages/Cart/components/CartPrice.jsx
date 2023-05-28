@@ -26,7 +26,7 @@ const CartPrice = () => {
           </div>
           <div className="cart-price-flex">
             <div>Delivery Charges</div>
-            <div>&#x20B9;FREE</div>
+            <div>FREE</div>
           </div>
         </div>
         <hr />
@@ -36,7 +36,7 @@ const CartPrice = () => {
         </div>
         <hr />
         <span className="cart-price-message">
-          You will save rs {totalPrice - discount} on this order
+          You will save &#x20B9;{totalPrice - discount} on this order
         </span>
         <NavLink to="/checkout">
           <button className="add-btn">Checkout</button>

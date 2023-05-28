@@ -122,6 +122,7 @@
 
 .add-btn {
     font-size: 1rem;
+    font-style: bold;
     padding: 0.5rem;
     background-color: #2563eb;
     background-color: var(--primary-color);
@@ -132,6 +133,9 @@
     cursor: pointer;
 }
 
+.add-btn:hover{
+    background-color: #f43f5e;
+}
 .product-star {
     background-color: #20aa20;
     color: white;

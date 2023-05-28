@@ -7,8 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const WishlistCart = ({ item }) => {
-  const { state, addItemToCart, removeFromWishlist,  } =
-    useContext(DataContext);
+  const { state, addItemToCart, removeFromWishlist } = useContext(DataContext);
   const navigate = useNavigate();
 
   const { _id, name, image, discount, price } = item;
@@ -59,10 +58,7 @@ const WishlistCart = ({ item }) => {
             </div>
           </div>
 
-          <button
-            className="add-btn remove-btn"
-            onClick={() => removeItem(item)}
-          >
+          <button className="add-btn" onClick={() => removeItem(item)}>
             {" "}
             Remove from Wishlist
           </button>
