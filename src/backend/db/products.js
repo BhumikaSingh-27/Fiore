@@ -159,4 +159,33 @@ export const products = [
     inCart: false,
     wishlist: false,
   },
+  {
+    _id: uuid(),
+    name: "Eternity White Roses Bouquet",
+    rating: 4.9,
+    price: 1000,
+    discount: 745,
+    categoryName: "Roses",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684396315/NegProjects/E-commerce/Roses/rose_main_g3oej0.avif",
+    inCart: false,
+    wishlist: false,
+    qty: 1,
+    desc: ["Bunch of 12 White roses", "white paper packing"],
+  },
+
+  {
+    _id: uuid(),
+    name: "Yellow Rose Basket",
+    rating: 2.5,
+    price: 2000,
+    discount: 1595,
+    categoryName: "Roses",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392268/NegProjects/E-commerce/Roses/rose7_y2wsyz.avif",
+    inCart: false,
+    wishlist: false,
+    qty: 1,
+    desc: ["Bunch of 25 Yellow Roses in a Basket"],
+  },
 ];

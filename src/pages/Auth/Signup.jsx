@@ -1,19 +1,23 @@
 import React, { useContext, useState } from "react";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
-import { FaEye } from "react-icons/fa";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 
 const Signup = () => {
   const { inputSignUp, setInputSignUp } = useContext(DataContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const navigate = useNavigate();
 
-  const tooglePassword = () => {
+  const tooglePassword = (e) => {
     setShowPassword((showPassword) => !showPassword);
+    e.target.type = "text";
+  };
+  const toogleConfirmPassword = () => {
+    setShowConfirmPassword((showConfirmPassword) => !showConfirmPassword);
   };
 
   const creds = {
@@ -75,20 +79,23 @@ const Signup = () => {
             <label>Password:</label>
             <input
               class="input-element"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="***********"
               onChange={(e) =>
                 setInputSignUp({ ...inputSignUp, password: e.target.value })
               }
             />
+            <div className="password-icon" onClick={tooglePassword}>
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </div>
             <label>Confirm Password:</label>
             <input
               class="input-element"
-              type={showPassword ? "text" : "password"}
+              type={showConfirmPassword ? "text" : "password"}
               placeholder="***********"
             />
-            <div className="password-icon" onClick={tooglePassword}>
-              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            <div className="password-icon" onClick={toogleConfirmPassword}>
+              {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
             </div>
             <button className="login-btn" onClick={signupHandler}>
               Create New Account

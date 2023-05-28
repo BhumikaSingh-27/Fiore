@@ -27,7 +27,7 @@
     height: 650px;
     position: absolute;
     left: 500px;
-    top: 50px;
+    top: 100px;
 }
 
 .login-page h3 {
@@ -101,6 +101,10 @@ label {
     left: 22rem;
     display: inline-block;
     width: 20px;
+}
+
+.login-icon {
+    left: 24rem;
 }
 
 .sign-up {

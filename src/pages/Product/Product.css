@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-top: 4rem;
 }
 
 .product-details {
@@ -149,8 +150,8 @@
     margin-top: 4rem;
 }
 
-.loader{
-    width:100%;
-    margin:auto;
+.loader {
+    width: 100%;
+    margin: auto;
     display: inline-block;
 }
