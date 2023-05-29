@@ -15,7 +15,7 @@ const Product = () => {
     : [...state.updatedProductData];
 
   const dataFilteredByPrice = state.priceFilter
-    ? searchedData.filter(({ discount }) => discount <= state.priceFilter)
+    ? searchedData.filter(({ discountedPrice }) => discountedPrice <= state.priceFilter)
     : searchedData;
 
   const dataByCategory = state.catType.length
@@ -31,8 +31,8 @@ const Product = () => {
   const finalFilteredData = state.sortType
     ? [...dataByRating].sort((a, b) =>
         state.sortType === "LH"
-          ? a.discount - b.discount
-          : b.discount - a.discount
+          ? a.discountedPrice - b.discountedPrice
+          : b.discountedPrice - a.discountedPrice
       )
     : dataByRating;
 

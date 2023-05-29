@@ -25,7 +25,7 @@ export const DataContextProvider = ({ children }) => {
     0
   );
   console.log(totalPrice)
-  const discount = state.cartData.reduce((acc, cur) => cur.discount*cur.qty + acc, 0);
+  const discount = state.cartData.reduce((acc, cur) => cur.discountedPrice*cur.qty + acc, 0);
 
   const getCategoryData = async () => {
     try {

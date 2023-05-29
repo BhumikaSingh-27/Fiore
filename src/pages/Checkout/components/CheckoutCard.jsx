@@ -6,7 +6,7 @@ import { AddressContext } from "../../../contexts/AddressContext";
 const CheckoutCard = () => {
   const { state, totalPrice, discount } = useContext(DataContext);
   const { checkoutAddress } = useContext(AddressContext);
-  console.log(checkoutAddress);
+
   return (
     <>
       <div className="checkout-container">

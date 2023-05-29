@@ -5,8 +5,9 @@ export const AddressContext = createContext();
 
 export const AddressContextProvider = ({ children }) => {
   const [address, addressDispatch] = useReducer(orderReducerFn, initialAddress);
-  const [checkoutAddress, setCheckoutAddress] = useState("Select the address to deliver the product");
-  console.log(address);
+  const [checkoutAddress, setCheckoutAddress] = useState(
+    "Select the address to deliver the product"
+  );
 
   const defaultAddress = [
     {

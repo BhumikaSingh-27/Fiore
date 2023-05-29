@@ -7,7 +7,7 @@ const UserProfile = () => {
   const { setCheckoutAddress } = useContext(AddressContext);
 
   useEffect(() => {
-    setCheckoutAddress("Select the Address");
+    setCheckoutAddress("Select the address to deliver the product");
   }, []);
   return (
     <div className="profile-body">

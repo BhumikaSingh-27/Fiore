@@ -63,12 +63,12 @@ const ProductDetails = () => {
         <div className="display-flex">
           <h2>{prodInfo?.name}</h2>
           <div className="price-info">
-            <h1>&#x20B9; {prodInfo?.discount}</h1>
+            <h1>&#x20B9; {prodInfo?.discountedPrice}</h1>
             <p className="cross-price">&#x20B9;{prodInfo?.price} </p>{" "}
             <span>
               (
               {Math.round(
-                ((prodInfo?.price - prodInfo?.discount) / prodInfo?.price) * 100
+                ((prodInfo?.price - prodInfo?.discountedPrice) / prodInfo?.price) * 100
               )}
               %OFF)
             </span>

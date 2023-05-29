@@ -10,7 +10,7 @@ const WishlistCart = ({ item }) => {
   const { state, addItemToCart, removeFromWishlist } = useContext(DataContext);
   const navigate = useNavigate();
 
-  const { _id, name, image, discount, price } = item;
+  const { _id, name, image, discountedPrice, price } = item;
   const getItem = state?.cartData.find(({ _id }) => _id === item._id);
 
   const addItemToCartFromWishlist = (item) => {
@@ -49,10 +49,10 @@ const WishlistCart = ({ item }) => {
             <h3 className="title">{name}</h3>
             <div className="display-flex">
               <div className="price-info">
-                <h1>&#x20B9; {discount}</h1>
+                <h1>&#x20B9; {discountedPrice}</h1>
                 <p className="cross-price">&#x20B9;{price} </p>{" "}
                 <span>
-                  ({Math.round(((price - discount) / price) * 100)}%OFF)
+                  ({Math.round(((price - discountedPrice) / price) * 100)}%OFF)
                 </span>
               </div>
             </div>

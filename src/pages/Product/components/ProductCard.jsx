@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductCard = ({ flower }) => {
-  const { _id, name, image, price, discount, rating } = flower;
+  const { _id, name, image, price, discountedPrice, rating } = flower;
 
   const {
     state,
@@ -94,9 +94,9 @@ const ProductCard = ({ flower }) => {
           </div>
           <div class="product-price-details">
             {" "}
-            <h2>&#x20B9;{discount}</h2>{" "}
+            <h2>&#x20B9;{discountedPrice}</h2>{" "}
             <p className="cross-text">&#x20B9;{price} </p>
-            <span>({Math.round(((price - discount) / price) * 100)}%OFF)</span>
+            <span>({Math.round(((price - discountedPrice) / price) * 100)}%OFF)</span>
           </div>
           <button className="add-btn" onClick={() => setCart(location, flower)}>
             <FaShoppingCart /> {cartItem ? "Go to Cart" : "Add to Cart"}

@@ -11,7 +11,7 @@ export const products = [
     name: "Blue Vanda Orchid Jute Bouquet",
     rating: 5,
     price: 3000,
-    discount: 2000,
+    discountedPrice: 2000,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393366/NegProjects/E-commerce/Orchids/DSC_1302_cfhtl3.avif",
@@ -29,7 +29,7 @@ export const products = [
     name: "Paradise Mixed Roses Bouquet",
     rating: 4.8,
     price: 1500,
-    discount: 1200,
+    discountedPrice: 1200,
     categoryName: "Roses",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392267/NegProjects/E-commerce/Roses/rose1_ghfy7g.avif",
@@ -45,7 +45,7 @@ export const products = [
     name: "Classic Aura 12 Red Roses Bouquet",
     rating: 4.5,
     price: 1299,
-    discount: 849,
+    discountedPrice: 849,
     categoryName: "Roses",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392267/NegProjects/E-commerce/Roses/rose3_yy3y54.avif",
@@ -60,7 +60,7 @@ export const products = [
     name: "Vibrant Blue Orchids",
     rating: 4.8,
     price: 1749,
-    discount: 1249,
+    discountedPrice: 1249,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393727/NegProjects/E-commerce/Orchids/or5_t9buok.avif",
@@ -75,7 +75,7 @@ export const products = [
     name: "Bouquet Of Orchids",
     rating: 4.5,
     price: 1549,
-    discount: 949,
+    discountedPrice: 949,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393727/NegProjects/E-commerce/Orchids/or7_eey2xd.avif",
@@ -90,7 +90,7 @@ export const products = [
     name: "Romance in Scarlet Hues",
     rating: 3,
     price: 1499,
-    discount: 1249,
+    discountedPrice: 1249,
     categoryName: "Roses",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392267/NegProjects/E-commerce/Roses/rose6_wuz87i.avif",
@@ -105,7 +105,7 @@ export const products = [
     name: "Sunny Yellow Rose Bouquet",
     rating: 3.9,
     price: 2899,
-    discount: 2549,
+    discountedPrice: 2549,
     categoryName: "Roses",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392267/NegProjects/E-commerce/Roses/rose2_rc3xur.avif",
@@ -120,7 +120,7 @@ export const products = [
     name: "Pink Oriental Lily Splendor",
     rating: 2,
     price: 1649,
-    discount: 999,
+    discountedPrice: 999,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/L6_nhwefj.avif",
@@ -135,7 +135,7 @@ export const products = [
     name: "Love Lilies",
     rating: 5,
     price: 2449,
-    discount: 1999,
+    discountedPrice: 1999,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/L7_ey0vnu.avif",
@@ -150,7 +150,7 @@ export const products = [
     name: "Lily Elegance",
     rating: 5,
     price: 2400,
-    discount: 2000,
+    discountedPrice: 2000,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/L5_paqak0.avif",
@@ -164,7 +164,7 @@ export const products = [
     name: "Eternity White Roses Bouquet",
     rating: 4.9,
     price: 1000,
-    discount: 745,
+    discountedPrice: 745,
     categoryName: "Roses",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684396315/NegProjects/E-commerce/Roses/rose_main_g3oej0.avif",
@@ -179,7 +179,7 @@ export const products = [
     name: "Yellow Rose Basket",
     rating: 2.5,
     price: 2000,
-    discount: 1595,
+    discountedPrice: 1595,
     categoryName: "Roses",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392268/NegProjects/E-commerce/Roses/rose7_y2wsyz.avif",
@@ -193,7 +193,7 @@ export const products = [
     name: "Sunny Lily Box",
     rating: 5,
     price: 3500,
-    discount: 2650,
+    discountedPrice: 2650,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392970/NegProjects/E-commerce/Lily/lily2_pguyuj.avif",
@@ -209,7 +209,7 @@ export const products = [
     name: "Sunny Lily Box",
     rating: 3.9,
     price: 2000,
-    discount: 1750,
+    discountedPrice: 1750,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/l3_h8fz9t.avif",
@@ -225,7 +225,7 @@ export const products = [
     name: "White Lily N Glass Vase",
     rating: 5,
     price: 3450,
-    discount: 3000,
+    discountedPrice: 3000,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392970/NegProjects/E-commerce/Lily/lily-main_xhfudr.avif",
@@ -241,7 +241,7 @@ export const products = [
     name: "White N Bright Yellow Lilies Bunch",
     rating: 2.5,
     price: 3000,
-    discount: 2000,
+    discountedPrice: 2000,
     categoryName: "Lilies",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/L4_lwimbl.avif",
@@ -255,7 +255,7 @@ export const products = [
     name: "Tranquil Orchids and Lilies",
     rating: 4.9,
     price: 3000,
-    discount: 2500,
+    discountedPrice: 2500,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393728/NegProjects/E-commerce/Orchids/or9_a9gsdi.avif",
@@ -270,7 +270,7 @@ export const products = [
     name: "Bellina Purple Orchid Bouquet",
     rating: 3.5,
     price: 1500,
-    discount: 1000,
+    discountedPrice: 1000,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393727/NegProjects/E-commerce/Orchids/or3_wvrpf5.avif",
@@ -285,7 +285,7 @@ export const products = [
     name: "Dazzling Dynamic Flower Arrangement",
     rating: 3.4,
     price: 2500,
-    discount: 1795,
+    discountedPrice: 1795,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393728/NegProjects/E-commerce/Orchids/or8_afbazo.avif",
@@ -300,7 +300,7 @@ export const products = [
     name: "Bowl Of Moms Love",
     rating: 2.0,
     price: 3000,
-    discount: 2500,
+    discountedPrice: 2500,
     categoryName: "Orchids",
     image:
       "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393956/NegProjects/E-commerce/Orchids/orch_fwftgt.avif",
