@@ -4,8 +4,7 @@ import Address from "./Address";
 import { AddressContext } from "../../contexts/AddressContext";
 
 const UserProfile = () => {
-  const { address, setCheckoutAddress } = useContext(AddressContext);
-  console.log("save", address.addressData);
+  const { setCheckoutAddress } = useContext(AddressContext);
 
   useEffect(() => {
     setCheckoutAddress("Select the Address");

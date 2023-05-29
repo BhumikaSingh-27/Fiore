@@ -8,14 +8,12 @@ import { IoPersonSharp } from "react-icons/io5";
 import { DataContext } from "../../contexts/DataContext";
 
 const Navbar = () => {
-  const { userLogOut, state, dispatch,  } = useContext(DataContext);
+  const { userLogOut, state, dispatch } = useContext(DataContext);
   const location = useLocation();
   const navigate = useNavigate();
 
   const cartCount = state?.cartData.length;
   const wishCount = state?.wishlistData.length;
-  console.log(wishCount);
-  
 
   const searchText = (value) => {
     dispatch({ type: "SEARCH_TEXT", payload: value });
@@ -63,7 +61,7 @@ const Navbar = () => {
               <span
                 className="navbar-counter"
                 style={{
-                  display:  wishCount ? "block" : "none",
+                  display: wishCount ? "block" : "none",
                 }}
               >
                 {wishCount ? wishCount : " "}

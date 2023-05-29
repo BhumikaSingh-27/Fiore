@@ -4,6 +4,7 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const { inputSignUp, setInputSignUp } = useContext(DataContext);
@@ -44,9 +45,15 @@ const Signup = () => {
       navigate(encodedToken && "/profile");
     } catch (e) {
       console.log(e);
+      toast.error("An error occured! Please enter all the fields", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 1000,
+        className: "toast-align",
+        // theme:"colored"
+      });
     }
   };
-
 
   return (
     <div>

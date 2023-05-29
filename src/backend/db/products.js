@@ -188,4 +188,127 @@ export const products = [
     qty: 1,
     desc: ["Bunch of 25 Yellow Roses in a Basket"],
   },
+  {
+    _id: uuid(),
+    name: "Sunny Lily Box",
+    rating: 5,
+    price: 3500,
+    discount: 2650,
+    categoryName: "Lilies",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392970/NegProjects/E-commerce/Lily/lily2_pguyuj.avif",
+
+    qty: 1,
+    desc: ["Arrangement of 6 Yellow Lilies", "Blue Floweraura Box"],
+    inCart: false,
+    wishlist: false,
+  },
+
+  {
+    _id: uuid(),
+    name: "Sunny Lily Box",
+    rating: 3.9,
+    price: 2000,
+    discount: 1750,
+    categoryName: "Lilies",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/l3_h8fz9t.avif",
+
+    qty: 1,
+    desc: ["Bunch of 10 Red Carnations and 3 White Lilies"],
+    inCart: false,
+    wishlist: false,
+  },
+
+  {
+    _id: uuid(),
+    name: "White Lily N Glass Vase",
+    rating: 5,
+    price: 3450,
+    discount: 3000,
+    categoryName: "Lilies",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684392970/NegProjects/E-commerce/Lily/lily-main_xhfudr.avif",
+
+    qty: 1,
+    desc: ["Arrangement of 8 White Lilies", "Red Vase"],
+    inCart: false,
+    wishlist: false,
+  },
+
+  {
+    _id: uuid(),
+    name: "White N Bright Yellow Lilies Bunch",
+    rating: 2.5,
+    price: 3000,
+    discount: 2000,
+    categoryName: "Lilies",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393082/NegProjects/E-commerce/Lily/L4_lwimbl.avif",
+    qty: 1,
+    desc: ["Arrangement of 8 White and Yellow Lilies", "Glass Vase"],
+    inCart: false,
+    wishlist: false,
+  },
+  {
+    _id: uuid(),
+    name: "Tranquil Orchids and Lilies",
+    rating: 4.9,
+    price: 3000,
+    discount: 2500,
+    categoryName: "Orchids",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393728/NegProjects/E-commerce/Orchids/or9_a9gsdi.avif",
+
+    qty: 1,
+    desc: ["Bunch of 4 Blue Orchids", "2 White Lilies in a Round Glass Vase"],
+    inCart: false,
+    wishlist: false,
+  },
+  {
+    _id: uuid(),
+    name: "Bellina Purple Orchid Bouquet",
+    rating: 3.5,
+    price: 1500,
+    discount: 1000,
+    categoryName: "Orchids",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393727/NegProjects/E-commerce/Orchids/or3_wvrpf5.avif",
+    qty: 1,
+    desc: ["Bunch of 6 Purple Orchids"],
+    inCart: false,
+    wishlist: false,
+  },
+
+  {
+    _id: uuid(),
+    name: "Dazzling Dynamic Flower Arrangement",
+    rating: 3.4,
+    price: 2500,
+    discount: 1795,
+    categoryName: "Orchids",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393728/NegProjects/E-commerce/Orchids/or8_afbazo.avif",
+    qty: 1,
+    desc: ["6 blue Orchids3 Anthurium", "2 Ming Fern and Raffia in the Basket"],
+    inCart: false,
+    wishlist: false,
+  },
+
+  {
+    _id: uuid(),
+    name: "Bowl Of Moms Love",
+    rating: 2.0,
+    price: 3000,
+    discount: 2500,
+    categoryName: "Orchids",
+    image:
+      "https://res.cloudinary.com/dgoldjr3g/image/upload/v1684393956/NegProjects/E-commerce/Orchids/orch_fwftgt.avif",
+
+    qty: 1,
+    desc: ["4 Pink Carnation", "6 Blue Orchids", "Fish Glass bowl"],
+    inCart: false,
+    wishlist: false,
+  },
+  
 ];

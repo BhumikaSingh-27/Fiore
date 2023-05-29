@@ -3,6 +3,7 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 // import { loginHandler } from "../../backend/controllers/AuthController";
 
 const Login = () => {
@@ -41,6 +42,13 @@ const Login = () => {
       }
     } catch (e) {
       console.log(e);
+      toast.error(`An error ocuured, please enter valid details`, {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 1000,
+        className: "toast-align",
+        // theme:"colored"
+      });
     }
   };
   return (
