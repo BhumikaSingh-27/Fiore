@@ -14,8 +14,8 @@ const Login = () => {
   const location = useLocation();
 
   const creds = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "bhumika@gmail.com",
+    password: "bhumi27",
   };
 
   const tooglePassword = () => {
