@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./UserProfile.css";
 import { AddressContext } from "../../contexts/AddressContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddressForm = () => {
   const { address, addressDispatch } = useContext(AddressContext);
@@ -13,11 +14,17 @@ const AddressForm = () => {
   };
 
   const saveAddress = () => {
-
     addressDispatch({ type: "ADD_ADDRESS" });
     navigate("/profile");
+    toast.success("New Address is Added", {
+      position: toast.POSITION.TOP_RIGHT,
+      theme: "light",
+      autoClose: 1000,
+      className: "toast-align",
+      // theme:"colored"
+    });
   };
-  
+
   const updateAddress = () => {
     addressDispatch({ type: "FILL_DUMMY_ADDRESS" });
   };

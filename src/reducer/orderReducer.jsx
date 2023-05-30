@@ -53,7 +53,6 @@ export const orderReducerFn = (state, action) => {
         postalCode: state.postalCode,
         mobile: state.mobile,
       };
-      
 
       if (state.id) {
         return {
@@ -70,7 +69,6 @@ export const orderReducerFn = (state, action) => {
         ...initialAddress,
         addressData: [...state.addressData, { ...add, id: uuid() }],
       };
-      
     }
     case "EDIT_ADDRESS": {
       const {
@@ -98,7 +96,7 @@ export const orderReducerFn = (state, action) => {
     }
     case "REMOVE_ADD": {
       const upAdd = state?.addressData.filter(
-        ({ postalCode }) => postalCode !== action.payload
+        ({ id }) => id !== action.payload
       );
       return { ...state.addressData, addressData: upAdd };
     }

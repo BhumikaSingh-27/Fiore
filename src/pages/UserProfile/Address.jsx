@@ -3,6 +3,7 @@ import "./UserProfile.css";
 import "../../components/Navbar/Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AddressContext } from "../../contexts/AddressContext";
+import { toast } from "react-toastify";
 
 const Address = () => {
   const { address, addressDispatch } = useContext(AddressContext);
@@ -27,7 +28,7 @@ const Address = () => {
 
         {address?.addressData?.map(
           (
-            { id,name, houseNo, city, state, country, postalCode, mobile },
+            { id, name, houseNo, city, state, country, postalCode, mobile },
             index
           ) => {
             return (
@@ -61,12 +62,19 @@ const Address = () => {
                   </button>
                   <button
                     className="remove-address-btn"
-                    onClick={() =>
+                    onClick={() => {
                       addressDispatch({
                         type: "REMOVE_ADD",
-                        payload: postalCode,
-                      })
-                    }
+                        payload: id,
+                      });
+                      toast.error("Address has been removed!", {
+                        position: toast.POSITION.TOP_RIGHT,
+                        theme: "light",
+                        autoClose: 1000,
+                        className: "toast-align",
+                        // theme:"colored"
+                      });
+                    }}
                   >
                     Remove
                   </button>
