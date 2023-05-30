@@ -7,8 +7,9 @@
 
 .home-hero-image {
 
-    box-shadow: 0px 0px 5px 5px var(--primary-color);
+    box-shadow: 0rem 0rem 0.3rem 0.3rem var(--primary-color);
     position: static;
+    min-width: 100%;
     margin: 10rem 0rem;
 }
 
@@ -62,7 +63,7 @@ footer {
     color: var(--secondary-color);
 }
 
-.footer-main{
+.footer-main {
     display: flex;
     flex-direction: column;
 }
@@ -71,9 +72,10 @@ footer {
     margin-top: 1rem;
 }
 
-.footer-text{
+.footer-text {
     font-weight: 600;
 }
+
 .mid-heading {
     position: relative;
     bottom: 6rem;

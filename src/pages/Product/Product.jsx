@@ -6,7 +6,7 @@ import { DataContext } from "../../contexts/DataContext";
 import { Circles } from "react-loader-spinner";
 
 const Product = () => {
-  const { state, dispatch, loading } = useContext(DataContext);
+  const { state, getProductData, loading } = useContext(DataContext);
 
   const searchedData = state.searchText
     ? state.productData.filter(({ name }) =>
@@ -15,7 +15,9 @@ const Product = () => {
     : [...state.updatedProductData];
 
   const dataFilteredByPrice = state.priceFilter
-    ? searchedData.filter(({ discountedPrice }) => discountedPrice <= state.priceFilter)
+    ? searchedData.filter(
+        ({ discountedPrice }) => discountedPrice <= state.priceFilter
+      )
     : searchedData;
 
   const dataByCategory = state.catType.length
@@ -36,6 +38,9 @@ const Product = () => {
       )
     : dataByRating;
 
+  useEffect(() => {
+    getProductData();
+  }, []);
   return (
     <>
       <div>

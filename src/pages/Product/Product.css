@@ -155,3 +155,9 @@
     margin: auto;
     display: inline-block;
 }
+
+@media screen and (max-width: 600px) {
+    .product-page {
+        top: 11rem;
+    }
+}

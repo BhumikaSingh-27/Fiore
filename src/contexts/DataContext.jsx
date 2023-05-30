@@ -203,7 +203,7 @@ export const DataContextProvider = ({ children }) => {
 
   useEffect(() => {
     getCategoryData();
-    getProductData();
+    
   }, []);
 
   return (
