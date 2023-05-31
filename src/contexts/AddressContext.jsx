@@ -15,7 +15,7 @@ export const AddressContextProvider = ({ children }) => {
   const [checkoutAddress, setCheckoutAddress] = useState(
     "Select the address to deliver the product"
   );
-  const { inputLogin } = useContext(DataContext);
+  
   const defaultAddress = [
     {
       id: 1,
@@ -29,24 +29,10 @@ export const AddressContextProvider = ({ children }) => {
     },
   ];
 
-  useEffect(() => {
-    (() => {
-      if (
-        inputLogin.email === "bhumika@gmail.com" &&
-        inputLogin.password === "bhumi27"
-      ) {
-        try {
-          addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
-        } catch (e) {
-          console.log(e);
-        }
-      }
-    })();
-  }, []);
-
+  
   return (
     <AddressContext.Provider
-      value={{ address, addressDispatch, checkoutAddress, setCheckoutAddress }}
+      value={{ address, addressDispatch, checkoutAddress, setCheckoutAddress,defaultAddress }}
     >
       {children}
     </AddressContext.Provider>
