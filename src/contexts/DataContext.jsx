@@ -9,8 +9,6 @@ export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
   // const [isClicked, setIsClicked] = useState({ cart: false, wish: false });
   const [loading, setLoading] = useState(false);
-  console.log(state.priceFilter);
-
   const navigate = useNavigate();
   const initialSignup = {
     firstName: null,
@@ -20,6 +18,7 @@ export const DataContextProvider = ({ children }) => {
     confirmPassword: null,
   };
   const [inputSignUp, setInputSignUp] = useState(initialSignup);
+  const [inputLogin, setInputLogin] = useState({ email: null, password: null });
 
   // calculating total price and discount
   const totalPrice = state?.cartData?.reduce(
@@ -230,6 +229,8 @@ export const DataContextProvider = ({ children }) => {
         loading,
         getProductData,
         initialSignup,
+        inputLogin,
+        setInputLogin,
       }}
     >
       {children}

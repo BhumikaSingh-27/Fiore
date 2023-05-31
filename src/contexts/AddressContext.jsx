@@ -1,5 +1,12 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { initialAddress, orderReducerFn } from "../reducer/orderReducer";
+import { DataContext } from "./DataContext";
 
 export const AddressContext = createContext();
 
@@ -8,7 +15,7 @@ export const AddressContextProvider = ({ children }) => {
   const [checkoutAddress, setCheckoutAddress] = useState(
     "Select the address to deliver the product"
   );
-
+  const { inputLogin } = useContext(DataContext);
   const defaultAddress = [
     {
       id: 1,
@@ -24,10 +31,15 @@ export const AddressContextProvider = ({ children }) => {
 
   useEffect(() => {
     (() => {
-      try {
-        addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
-      } catch (e) {
-        console.log(e);
+      if (
+        inputLogin.email === "bhumika@gmail.com" &&
+        inputLogin.password === "bhumi27"
+      ) {
+        try {
+          addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
+        } catch (e) {
+          console.log(e);
+        }
       }
     })();
   }, []);

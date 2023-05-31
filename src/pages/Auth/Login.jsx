@@ -8,9 +8,9 @@ import { DataContext } from "../../contexts/DataContext";
 // import { loginHandler } from "../../backend/controllers/AuthController";
 
 const Login = () => {
-  const [inputLogin, setInputLogin] = useState({ email: null, password: null });
+  
   const [showPassword, setShowPassword] = useState(false);
-  const { setInputSignUp, initialSignup } = useContext(DataContext);
+  const { setInputSignUp, initialSignup,inputLogin, setInputLogin } = useContext(DataContext);
 
   const navigate = useNavigate();
   const location = useLocation();
