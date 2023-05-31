@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import "./Auth.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { DataContext } from "../../contexts/DataContext";
 // import { loginHandler } from "../../backend/controllers/AuthController";
 
 const Login = () => {
   const [inputLogin, setInputLogin] = useState({ email: null, password: null });
   const [showPassword, setShowPassword] = useState(false);
+  const { setInputSignUp, initialSignup } = useContext(DataContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,7 +44,7 @@ const Login = () => {
       }
     } catch (e) {
       console.log(e);
-      toast.error(`An error ocuured, please enter valid details`, {
+      toast.error(`An error ocuured, please try again`, {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 1000,
@@ -51,6 +53,10 @@ const Login = () => {
       });
     }
   };
+
+  useEffect(() => {
+    setInputSignUp(initialSignup);
+  }, []);
   return (
     <div>
       <div className="login-page">

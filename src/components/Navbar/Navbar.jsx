@@ -61,7 +61,7 @@ const Navbar = () => {
               <span
                 className="navbar-counter"
                 style={{
-                  display: wishCount ? "block" : "none",
+                  display: wishCount && localStorage.getItem("encodedToken") ? "block" : "none",
                 }}
               >
                 {wishCount ? wishCount : " "}
@@ -78,7 +78,7 @@ const Navbar = () => {
               <span
                 className="navbar-counter"
                 style={{
-                  display: cartCount ? "block" : "none",
+                  display: cartCount && localStorage.getItem("encodedToken") ? "block" : "none",
                 }}
               >
                 {cartCount ? cartCount : " "}

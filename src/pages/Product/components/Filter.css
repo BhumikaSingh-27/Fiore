@@ -1,3 +1,7 @@
+.filter-position {
+    position: sticky;
+}
+
 .filter-main-body {
     display: flex;
     flex-direction: column;
@@ -5,12 +9,14 @@
     height: 100%;
     padding: 1rem;
     justify-content: flex-start;
+
 }
 
 .filter-component {
     display: flex;
     justify-content: space-between;
     margin: 1rem;
+    position: sticky;
 }
 
 .price-h4 {
@@ -133,9 +139,10 @@
     cursor: pointer;
 }
 
-.add-btn:hover{
+.add-btn:hover {
     background-color: #f43f5e;
 }
+
 .product-star {
     background-color: #20aa20;
     color: white;

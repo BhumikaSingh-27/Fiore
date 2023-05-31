@@ -22,36 +22,83 @@ const Signup = () => {
   };
 
   const creds = {
-    firstName: inputSignUp.firstName,
-    lastName: inputSignUp.lastName,
     email: inputSignUp.email,
     password: inputSignUp.password,
+    confirmPassword: inputSignUp.confirmPassword,
+    firstName: inputSignUp.firstName,
+    lastName: inputSignUp.lastName,
   };
 
-  const signupHandler = async () => {
-    try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        body: JSON.stringify(creds),
-      });
-
-      if (response.status !== 200) {
-        throw response.statusText;
+  const validateFields = () => {
+    if (
+      creds.email &&
+      creds.password &&
+      creds.confirmPassword &&
+      creds.firstName &&
+      creds.lastName
+    ) {
+      if (creds.password !== creds.confirmPassword) {
+        toast.error(
+          "Password doenot match, please enter the correct password",
+          {
+            position: toast.POSITION.TOP_RIGHT,
+            theme: "light",
+            autoClose: 1000,
+            className: "toast-align",
+            // theme:"colored"
+          }
+        );
+        return false;
       }
-
-      const data = await response.json();
-      const { encodedToken } = data;
-      localStorage.setItem("encodedToken", encodedToken);
-      navigate(encodedToken && "/profile");
-    } catch (e) {
-      console.log(e);
-      toast.error("An error occured! Please enter all the fields", {
+      if (!creds.email.includes("@")) {
+        toast.error("Please enter a valid email id", {
+          position: toast.POSITION.TOP_RIGHT,
+          theme: "light",
+          autoClose: 1000,
+          className: "toast-align",
+          // theme:"colored"
+        });
+        return false;
+      }
+      return true;
+    } else {
+      toast.error("Please fill all the required fields", {
         position: toast.POSITION.TOP_RIGHT,
         theme: "light",
         autoClose: 1000,
         className: "toast-align",
         // theme:"colored"
       });
+      return false;
+    }
+  };
+  const signupHandler = async () => {
+    const check = validateFields();
+    if (check) {
+      try {
+        const response = await fetch("/api/auth/signup", {
+          method: "POST",
+          body: JSON.stringify(creds),
+        });
+
+        if (response.status !== 201) {
+          throw response.statusText;
+        }
+
+        const data = await response.json();
+        const { encodedToken } = data;
+        localStorage.setItem("encodedToken", encodedToken);
+        navigate(encodedToken && "/profile");
+      } catch (e) {
+        console.log(e);
+        toast.error("An error occured! Please try again", {
+          position: toast.POSITION.TOP_RIGHT,
+          theme: "light",
+          autoClose: 1000,
+          className: "toast-align",
+          // theme:"colored"
+        });
+      }
     }
   };
 
@@ -105,6 +152,12 @@ const Signup = () => {
               class="input-element"
               type={showConfirmPassword ? "text" : "password"}
               placeholder="***********"
+              onChange={(e) =>
+                setInputSignUp({
+                  ...inputSignUp,
+                  confirmPassword: e.target.value,
+                })
+              }
             />
             <div className="password-icon" onClick={toogleConfirmPassword}>
               {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}

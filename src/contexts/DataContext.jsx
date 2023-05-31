@@ -9,23 +9,28 @@ export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
   // const [isClicked, setIsClicked] = useState({ cart: false, wish: false });
   const [loading, setLoading] = useState(false);
+  console.log(state.priceFilter);
 
   const navigate = useNavigate();
-
-  const [inputSignUp, setInputSignUp] = useState({
+  const initialSignup = {
     firstName: null,
     lastName: null,
     email: null,
     password: null,
-  });
+    confirmPassword: null,
+  };
+  const [inputSignUp, setInputSignUp] = useState(initialSignup);
 
   // calculating total price and discount
   const totalPrice = state?.cartData?.reduce(
     (acc, cur) => cur.price * cur.qty + acc,
     0
   );
-  console.log(totalPrice)
-  const discount = state.cartData.reduce((acc, cur) => cur.discountedPrice*cur.qty + acc, 0);
+  console.log(totalPrice);
+  const discount = state.cartData.reduce(
+    (acc, cur) => cur.discountedPrice * cur.qty + acc,
+    0
+  );
 
   const getCategoryData = async () => {
     try {
@@ -66,7 +71,6 @@ export const DataContextProvider = ({ children }) => {
         console.log(e);
       }
     })();
-    
   };
 
   const addItemToCart = async (item) => {
@@ -203,7 +207,6 @@ export const DataContextProvider = ({ children }) => {
 
   useEffect(() => {
     getCategoryData();
-    
   }, []);
 
   return (
@@ -226,6 +229,7 @@ export const DataContextProvider = ({ children }) => {
         discount,
         loading,
         getProductData,
+        initialSignup,
       }}
     >
       {children}

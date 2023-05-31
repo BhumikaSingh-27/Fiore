@@ -4,9 +4,10 @@ import { DataContext } from "../../../contexts/DataContext";
 
 const Filter = () => {
   const { state, dispatch } = useContext(DataContext);
-  
+
+
   return (
-    <div>
+    <div className="filter-position">
       <div className="filter-main-body">
         <div className="filter-component">
           <h4>Filters</h4>
@@ -26,7 +27,7 @@ const Filter = () => {
             <p>3000</p>
           </div>
           <input
-            class
+            // defaultValue="3000"
             type="range"
             min="500"
             max="3000"

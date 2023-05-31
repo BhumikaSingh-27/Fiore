@@ -103,7 +103,7 @@ export const reducerFn = (state, action) => {
     }
 
     case "SELECT_ROSE": {
-      const obj = { ...state.checkCategory,isRoses: true  };
+      const obj = { ...state.checkCategory, isRoses: true };
       const arr = [action.payload];
       return {
         ...state,
