@@ -4,45 +4,43 @@ import "./Home.css";
 import { NavLink } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 
-
 const Home = () => {
-    const {state,getProductData,dispatch} = useContext(DataContext)
-    useEffect(() => {
-      dispatch({ type: "RESET_ALL" });
-    }, []);
+  const { state, getProductData, dispatch, setInputLogin } =
+    useContext(DataContext);
+  useEffect(() => {
+    dispatch({ type: "RESET_ALL" });
+  }, []);
+
+  useEffect(() => {
+    setInputLogin({ email: null, password: null });
+  }, []);
   return (
     <>
-   
       <main>
         <div className="home-hero-image">
           <NavLink to="/product">
-            <img onClick={()=>getProductData()}
-            // src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1684384979/flower1_yxr75v.png"
+            <img
+              onClick={() => getProductData()}
+              // src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1684384979/flower1_yxr75v.png"
               src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt32prodlp/banners/same_day_delivery_d_interflora_banner_20230427.jpg"
               alt=""
-            /> 
+            />
           </NavLink>
-        
         </div>
       </main>
-      
-      <div className="mid-heading">
-      <h1>Search by Category</h1>
-      </div>
-       
 
-        <div className="align-category">
-            {
-                state.categoryData.map(({_id,categoryName,image})=><Category _id={_id} name={categoryName} src={image} />)
-            }
-          
-          {/* <Category />
-          <Category /> */}
-          
-    
-   
+      <div className="mid-heading">
+        <h1>Search by Category</h1>
       </div>
-      
+
+      <div className="align-category">
+        {state.categoryData.map(({ _id, categoryName, image }) => (
+          <Category _id={_id} name={categoryName} src={image} />
+        ))}
+
+        {/* <Category />
+          <Category /> */}
+      </div>
     </>
   );
 };

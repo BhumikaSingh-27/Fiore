@@ -143,6 +143,7 @@
 
 .filter-body {
     border-right: 1px solid black;
+    position: relative;
     flex-grow: 1;
 }
 

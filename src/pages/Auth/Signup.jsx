@@ -5,9 +5,11 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 import { toast } from "react-toastify";
+import { AddressContext } from "../../contexts/AddressContext";
 
 const Signup = () => {
   const { inputSignUp, setInputSignUp } = useContext(DataContext);
+  const { addressDispatch } = useContext(AddressContext);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -86,7 +88,8 @@ const Signup = () => {
         }
 
         const data = await response.json();
-        const { encodedToken } = data;
+        const { createdUser, encodedToken } = data;
+        addressDispatch({ type: "SET_USERNAME", payload: createdUser });
         localStorage.setItem("encodedToken", encodedToken);
         navigate(encodedToken && "/profile");
       } catch (e) {

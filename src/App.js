@@ -20,48 +20,48 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/mockman" element={<Mockman />}></Route>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/product" element={<Product />}></Route>
-        <Route path="/product/:prodId" element={<ProductDetails />}></Route>
-        <Route
-          path="/cart"
-          element={
-            <AuthWrapper>
-              <Cart />
-            </AuthWrapper>
-          }
-        ></Route>
-        <Route
-          path="/wishlist"
-          element={
-            <AuthWrapper>
-              <Wishlist />
-            </AuthWrapper>
-          }
-        ></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route
-          path="/profile"
-          element={
-            <AuthWrapper>
-              {" "}
-              <UserProfile />
-            </AuthWrapper>
-          }
-        ></Route>
-        <Route path="/addressform" element={<AddressForm />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route>
-      </Routes>
+        <Navbar />
+        <Routes>
+          <Route path="/mockman" element={<Mockman />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/product" element={<Product />}></Route>
+          <Route path="/product/:prodId" element={<ProductDetails />}></Route>
+          <Route
+            path="/cart"
+            element={
+              <AuthWrapper>
+                <Cart />
+              </AuthWrapper>
+            }
+          ></Route>
+          <Route
+            path="/wishlist"
+            element={
+              <AuthWrapper>
+                <Wishlist />
+              </AuthWrapper>
+            }
+          ></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route
+            path="/profile"
+            element={
+              <AuthWrapper>
+                {" "}
+                <UserProfile />
+              </AuthWrapper>
+            }
+          ></Route>
+          <Route path="/addressform" element={<AddressForm />}></Route>
+          <Route path="/checkout" element={<Checkout />}></Route>
+        </Routes>
 
-      <footer>
-        <Footer />
-      </footer>
-      <ToastContainer />
-    </div>
+        <footer>
+          <Footer />
+        </footer>
+        <ToastContainer />
+      </div>
   );
 }
 

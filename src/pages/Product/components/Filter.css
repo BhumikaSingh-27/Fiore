@@ -1,5 +1,6 @@
 .filter-position {
     position: sticky;
+    left: 0;
 }
 
 .filter-main-body {
@@ -16,7 +17,6 @@
     display: flex;
     justify-content: space-between;
     margin: 1rem;
-    position: sticky;
 }
 
 .price-h4 {

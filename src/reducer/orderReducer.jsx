@@ -10,10 +10,17 @@ export const initialAddress = {
   postalCode: null,
   mobile: null,
   addressData: [],
+  user: {},
 };
 
 export const orderReducerFn = (state, action) => {
   switch (action.type) {
+    case "SET_USERNAME": {
+      return {
+        ...state,
+        user: action.payload
+      };
+    }
     case "FILL_DUMMY_ADDRESS": {
       return {
         ...state,

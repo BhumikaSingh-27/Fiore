@@ -5,12 +5,13 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DataContext } from "../../contexts/DataContext";
+import { AddressContext } from "../../contexts/AddressContext";
 // import { loginHandler } from "../../backend/controllers/AuthController";
 
 const Login = () => {
-  
   const [showPassword, setShowPassword] = useState(false);
-  const { setInputSignUp, initialSignup,inputLogin, setInputLogin } = useContext(DataContext);
+  const { inputLogin, setInputLogin } = useContext(DataContext);
+  const { addressDispatch } = useContext(AddressContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,9 +35,10 @@ const Login = () => {
       if (res.status !== 200) {
         throw res.statusText;
       }
-      const { encodedToken } = await res.json();
+      const { foundUser, encodedToken } = await res.json();
+      addressDispatch({ type: "SET_USERNAME", payload: foundUser });
       localStorage.setItem("encodedToken", encodedToken);
-
+      
       if (encodedToken) {
         navigate(location?.state?.from?.pathname ?? "/");
       } else {
@@ -55,8 +57,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    setInputSignUp(initialSignup);
+    setInputLogin({ email: null, password: null });
   }, []);
+
   return (
     <div>
       <div className="login-page">

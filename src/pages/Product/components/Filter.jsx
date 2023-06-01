@@ -7,7 +7,7 @@ const Filter = () => {
 
 
   return (
-    <div className="filter-position">
+    <div>
       <div className="filter-main-body">
         <div className="filter-component">
           <h4>Filters</h4>

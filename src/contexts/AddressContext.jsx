@@ -1,12 +1,10 @@
 import {
   createContext,
-  useContext,
-  useEffect,
   useReducer,
   useState,
 } from "react";
 import { initialAddress, orderReducerFn } from "../reducer/orderReducer";
-import { DataContext } from "./DataContext";
+
 
 export const AddressContext = createContext();
 

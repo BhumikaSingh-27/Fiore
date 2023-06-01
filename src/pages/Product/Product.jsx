@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import "./Product.css";
+import "./components/Filter.css";
 import { DataContext } from "../../contexts/DataContext";
 import { Circles } from "react-loader-spinner";
 
@@ -40,13 +41,16 @@ const Product = () => {
 
   useEffect(() => {
     getProductData();
+    window.scrollTo(0, 0);
   }, []);
   return (
     <>
       <div>
         <div className="product-page">
           <div className="filter-body">
-            <Filter />
+            <div className="filter-position">
+              <Filter />
+            </div>
           </div>
           <div className="product-list">
             {loading && (
