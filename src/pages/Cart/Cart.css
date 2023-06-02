@@ -131,7 +131,7 @@ hr {
 
 .cart-main {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     gap: 8rem;
     justify-content: center;
 }
@@ -153,5 +153,5 @@ hr {
 
 .cart-product-list {
     padding-bottom: 4rem;
-    margin-bottom: 10rem;
+    /* margin-bottom: 10rem; */
 }
