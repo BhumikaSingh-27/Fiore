@@ -7,7 +7,7 @@ export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
-  // const [isClicked, setIsClicked] = useState({ cart: false, wish: false });
+ 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const initialSignup = {

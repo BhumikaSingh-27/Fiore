@@ -11,7 +11,7 @@ import { AddressContext } from "../../contexts/AddressContext";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { inputLogin, setInputLogin } = useContext(DataContext);
-  const { addressDispatch } = useContext(AddressContext);
+  const { userInfo, setUserInfo } = useContext(AddressContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,9 +36,10 @@ const Login = () => {
         throw res.statusText;
       }
       const { foundUser, encodedToken } = await res.json();
-      addressDispatch({ type: "SET_USERNAME", payload: foundUser });
+      setUserInfo(foundUser);
+
       localStorage.setItem("encodedToken", encodedToken);
-      
+
       if (encodedToken) {
         navigate(location?.state?.from?.pathname ?? "/");
       } else {
@@ -55,11 +56,7 @@ const Login = () => {
       });
     }
   };
-
-  useEffect(() => {
-    setInputLogin({ email: null, password: null });
-  }, []);
-
+  console.log(userInfo);
   return (
     <div>
       <div className="login-page">

@@ -1,19 +1,26 @@
-import {
-  createContext,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { initialAddress, orderReducerFn } from "../reducer/orderReducer";
-
 
 export const AddressContext = createContext();
 
 export const AddressContextProvider = ({ children }) => {
-  const [address, addressDispatch] = useReducer(orderReducerFn, initialAddress);
   const [checkoutAddress, setCheckoutAddress] = useState(
     "Select the address to deliver the product"
   );
-  
+
+  const [userAdd, setUserAdd] = useState({});
+  const [userInfo, setUserInfo] = useState({});
+  const [newAddress, setNewAddress] = useState({
+    id: null,
+    name: null,
+    houseNo: null,
+    city: null,
+    stateName: null,
+    country: null,
+    postalCode: null,
+    mobile: null,
+  });
+
   const defaultAddress = [
     {
       id: 1,
@@ -27,10 +34,35 @@ export const AddressContextProvider = ({ children }) => {
     },
   ];
 
-  
+  const defaultUser = {
+    "bhumika@gmail.com": defaultAddress,
+  };
+
+  const key = userInfo?.email;
+  console.log("key", key);
+
+  const address = userAdd[key];
+  console.log("context", address);
+
+  useEffect(() => {
+    setUserAdd(defaultUser);
+  }, []);
+
+  console.log("user", userAdd);
   return (
     <AddressContext.Provider
-      value={{ address, addressDispatch, checkoutAddress, setCheckoutAddress,defaultAddress }}
+      value={{
+        checkoutAddress,
+        setCheckoutAddress,
+        defaultAddress,
+        userInfo,
+        setUserInfo,
+        userAdd,
+        setUserAdd,
+        address,
+        newAddress,
+        setNewAddress,
+      }}
     >
       {children}
     </AddressContext.Provider>

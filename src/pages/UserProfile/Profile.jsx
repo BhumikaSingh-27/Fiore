@@ -5,7 +5,7 @@ import { AddressContext } from "../../contexts/AddressContext";
 
 const Profile = () => {
   const { userLogOut } = useContext(DataContext);
-  const { address } = useContext(AddressContext);
+  const { userInfo } = useContext(AddressContext);
 
   return (
     <div>
@@ -15,9 +15,9 @@ const Profile = () => {
         <div className="align-center">
           <div style={{ textAlign: "start" }}>
             <p>
-              <b>full name:</b> {address.user.firstName} {address.user.lastName}
+              <b>full name:</b> {userInfo.firstName} {userInfo.lastName}
               <br />
-              <b>email:</b> {address.user.email}
+              <b>email:</b> {userInfo.email}
             </p>
           </div>
         </div>
