@@ -34,12 +34,12 @@ const Home = () => {
       </div>
 
       <div className="align-category">
-        {state.categoryData.map(({ _id, categoryName, image }) => (
-          <Category _id={_id} name={categoryName} src={image} />
+        {state.categoryData.map(({ _id, categoryName, image }, index) => (
+          <div key={index}>
+            {" "}
+            <Category _id={_id} name={categoryName} src={image} />{" "}
+          </div>
         ))}
-
-        {/* <Category />
-          <Category /> */}
       </div>
     </>
   );

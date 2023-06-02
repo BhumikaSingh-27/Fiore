@@ -29,7 +29,6 @@ const WishlistCart = ({ item }) => {
 
   const removeItem = (item) => {
     removeFromWishlist(item);
-    // setIsClicked((prev) => ({ ...prev, wish: true }));
     toast.warn("Removed from Wishlist", {
       position: toast.POSITION.TOP_RIGHT,
       theme: "light",

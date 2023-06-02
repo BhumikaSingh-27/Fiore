@@ -25,7 +25,7 @@ export const DataContextProvider = ({ children }) => {
     (acc, cur) => cur.price * cur.qty + acc,
     0
   );
-  console.log(totalPrice);
+  
   const discount = state.cartData.reduce(
     (acc, cur) => cur.discountedPrice * cur.qty + acc,
     0
@@ -88,8 +88,6 @@ export const DataContextProvider = ({ children }) => {
         });
 
         const data = await res.json();
-        //   console.log(data.cart);
-
         dispatch({ type: "ADD_ITEM", payload: data.cart });
       } catch (e) {
         console.log(e);
@@ -118,8 +116,6 @@ export const DataContextProvider = ({ children }) => {
       dispatch({ type: "ADD_TO_WISHLIST", payload: data.wishlist });
     } catch (e) {
       console.log(e);
-    }
-    if (state.wishlistData.length === 0) {
     }
   };
 
