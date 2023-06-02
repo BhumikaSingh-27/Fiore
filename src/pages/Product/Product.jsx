@@ -40,9 +40,12 @@ const Product = () => {
     : dataByRating;
 
   useEffect(() => {
-    getProductData();
+    if (state.productData.length === 0) {
+      getProductData();
+    }
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <div>

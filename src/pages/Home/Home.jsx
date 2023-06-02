@@ -22,7 +22,7 @@ const Home = () => {
         <div className="home-hero-image">
           <NavLink to="/product">
             <img
-              onClick={() => getProductData()}
+              // onClick={() => getProductData()}
               src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt32prodlp/banners/same_day_delivery_d_interflora_banner_20230427.jpg"
               alt=""
             />

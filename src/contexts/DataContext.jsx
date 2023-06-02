@@ -7,7 +7,7 @@ export const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, initialValue);
- 
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const initialSignup = {
@@ -25,7 +25,7 @@ export const DataContextProvider = ({ children }) => {
     (acc, cur) => cur.price * cur.qty + acc,
     0
   );
-  
+
   const discount = state.cartData.reduce(
     (acc, cur) => cur.discountedPrice * cur.qty + acc,
     0
@@ -203,6 +203,7 @@ export const DataContextProvider = ({ children }) => {
   useEffect(() => {
     getCategoryData();
   }, []);
+  
 
   return (
     <DataContext.Provider
