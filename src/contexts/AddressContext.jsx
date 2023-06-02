@@ -38,11 +38,23 @@ export const AddressContextProvider = ({ children }) => {
     "bhumika@gmail.com": defaultAddress,
   };
 
+  const updateAddress = () => {
+    setNewAddress({
+      name: "Bhumika Singh",
+      houseNo: "savita sadan, road no 18/4A",
+      city: "Patna",
+      state: "Bihar",
+      country: "India",
+      postalCode: "800024",
+      mobile: "7999899345",
+    });
+  };
+
   const key = userInfo?.email;
-  console.log("key", key);
+  // console.log("key", key);
 
   const address = userAdd[key];
-  console.log("context", address);
+  // console.log("context", address);
 
   useEffect(() => {
     setUserAdd(defaultUser);
@@ -62,6 +74,7 @@ export const AddressContextProvider = ({ children }) => {
         address,
         newAddress,
         setNewAddress,
+        updateAddress,
       }}
     >
       {children}

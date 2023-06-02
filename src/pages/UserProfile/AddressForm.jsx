@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddressForm = () => {
-  const { newAddress, setNewAddress, address, setUserAdd, userAdd, userInfo } =
+  const { newAddress, setNewAddress, setUserAdd, userAdd, userInfo,updateAddress } =
     useContext(AddressContext);
 
   const navigate = useNavigate();
@@ -16,29 +16,54 @@ const AddressForm = () => {
   };
 
   const saveAddress = (addressId) => {
-    let add = {};
-
-    if (address) {
-    //   if (addressId) {
-        add = [...address, { ...newAddress, id: uuid() }];
-    //   } else {
-    //     address?.map((ele) => (ele.id === addressId ? { ...newAddress } : ele));
-    //   }
+    if (Object.keys(userAdd).includes(userInfo.email)) {
+      const add = userAdd[userInfo.email];
+      console.log("add id edit", add, addressId);
+      if (addressId) {
+        const upadd = add?.map((addressObj) => {
+          if (addressObj.id === addressId) {
+            return { ...newAddress };
+          } else {
+            return addressObj;
+          }
+        });
+        setUserAdd((userAdd) => ({ ...userAdd, [userInfo.email]: upadd }));
+        toast.success("Address is updated!", {
+          position: toast.POSITION.TOP_RIGHT,
+          theme: "light",
+          autoClose: 1000,
+          className: "toast-align",
+          // theme:"colored"
+        });
+      } else {
+        setUserAdd((userAdd) => ({
+          ...userAdd,
+          [userInfo.email]: [...add, { ...newAddress, id: uuid() }],
+        }));
+        toast.success("New Address is Added", {
+          position: toast.POSITION.TOP_RIGHT,
+          theme: "light",
+          autoClose: 1000,
+          className: "toast-align",
+          // theme:"colored"
+        });
+      }
     } else {
-      add = [{ ...newAddress, id: uuid() }]; //for newly registered email
+      setUserAdd((userAdd) => ({
+        ...userAdd,
+        [userInfo.email]: [{ ...newAddress, id: uuid() }],
+      }));
+      toast.success("New Address is Added", {
+        position: toast.POSITION.TOP_RIGHT,
+        theme: "light",
+        autoClose: 1000,
+        className: "toast-align",
+        // theme:"colored"
+      });
     }
-
-    setUserAdd((prev) => ({ ...prev, [userInfo?.email]: add }));
     navigate("/profile");
-    toast.success("New Address is Added", {
-      position: toast.POSITION.TOP_RIGHT,
-      theme: "light",
-      autoClose: 1000,
-      className: "toast-align",
-      // theme:"colored"
-    });
   };
-  const updateAddress = () => {};
+   
   return (
     <div className="form-container">
       <div className="form-address">
@@ -109,7 +134,7 @@ const AddressForm = () => {
           >
             save
           </button>
-          <button className="remove-newAddress-btn" onClick={goback}>
+          <button className="remove-address-btn" onClick={goback}>
             cancel
           </button>
           <button className="dummy-btn" onClick={updateAddress}>

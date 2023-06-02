@@ -3,31 +3,28 @@ import "./UserProfile.css";
 import "../../components/Navbar/Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AddressContext } from "../../contexts/AddressContext";
-import { toast } from "react-toastify";
-import { FaVolumeOff } from "react-icons/fa";
 
 const Address = () => {
-  const { userInfo, userAdd, setNewAddress } = useContext(AddressContext);
+  const { userInfo, userAdd, setNewAddress, setUserAdd } =
+    useContext(AddressContext);
   const navigate = useNavigate();
-
-  //   const editTheForm = (add) => {
-  //     navigate("/addressform");
-  //     addressDispatch({
-  //       type: "EDIT_ADDRESS",
-  //       payload: add,
-  //     });
-  //   };
 
   const userKey = userInfo?.email;
   const userAddress = userAdd[userKey];
 
   const EditAddress = (addressId) => {
-    console.log(addressId);
     const addToUpdate = userAddress.find(({ id }) => id === addressId);
-    console.log(addToUpdate);
-    setNewAddress(addToUpdate)
-    navigate("/addressform")
+    setNewAddress(addToUpdate);
+    navigate("/addressform");
   };
+
+  const removeAddress = (addressId) => {
+    console.log(userAddress)
+    const address = userAddress.filter((ele) => ele.id !== addressId);
+    setUserAdd(prev=>({...prev,[userKey]:address}))
+    console.log(address);
+  };
+
   useEffect(() => {
     setNewAddress({
       id: null,
@@ -75,7 +72,12 @@ const Address = () => {
                   <button className="edit-btn" onClick={() => EditAddress(id)}>
                     Edit
                   </button>
-                  <button className="remove-address-btn">Remove</button>
+                  <button
+                    className="remove-address-btn"
+                    onClick={() => removeAddress(id)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             );

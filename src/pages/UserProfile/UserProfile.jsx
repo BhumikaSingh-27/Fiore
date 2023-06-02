@@ -9,24 +9,10 @@ const UserProfile = () => {
     useContext(AddressContext);
     
   const { setInputLogin } = useContext(DataContext);
-  // console.log(address.user);
+  
   useEffect(() => {
     setCheckoutAddress("Select the address to deliver the product");
   }, []);
-
-  // useEffect(() => {
-  //   (() => {
-  //     if (address.user.email === "bhumika@gmail.com") {
-  //       try {
-  //         addressDispatch({ type: "DEFAULT_ADDRESS", payload: defaultAddress });
-  //       } catch (e) {
-  //         console.log(e);
-  //       }
-  //     } else {
-  //       addressDispatch({ type: "DEFAULT_ADDRESS", payload: [] });
-  //     }
-  //   })();
-  // }, []);
 
   useEffect(() => {
     setInputLogin({ email: null, password: null });
