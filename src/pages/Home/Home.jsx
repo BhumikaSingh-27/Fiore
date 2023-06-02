@@ -7,6 +7,7 @@ import { DataContext } from "../../contexts/DataContext";
 const Home = () => {
   const { state, getProductData, dispatch, setInputLogin } =
     useContext(DataContext);
+    
   useEffect(() => {
     dispatch({ type: "RESET_ALL" });
   }, []);
@@ -14,6 +15,7 @@ const Home = () => {
   useEffect(() => {
     setInputLogin({ email: null, password: null });
   }, []);
+
   return (
     <>
       <main>
@@ -21,7 +23,6 @@ const Home = () => {
           <NavLink to="/product">
             <img
               onClick={() => getProductData()}
-              // src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1684384979/flower1_yxr75v.png"
               src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt32prodlp/banners/same_day_delivery_d_interflora_banner_20230427.jpg"
               alt=""
             />

@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-import { initialAddress, orderReducerFn } from "../reducer/orderReducer";
+import { createContext, useEffect, useState } from "react";
 
 export const AddressContext = createContext();
 
