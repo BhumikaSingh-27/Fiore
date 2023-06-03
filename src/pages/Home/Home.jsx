@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 
 const Home = () => {
-  const { state, getProductData, dispatch, setInputLogin } =
-    useContext(DataContext);
-    
+  const { state, dispatch, setInputLogin } = useContext(DataContext);
+
   useEffect(() => {
     dispatch({ type: "RESET_ALL" });
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
