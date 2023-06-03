@@ -8,7 +8,7 @@ An E-commerce website for elegant flowers
 
 ## How to install and run locally?
 
-`$ git clone https://github.com/BhumikaSingh-27/Fiore.git
+`$ git clone https://github.com/BhumikaSingh-27/Fiore.git`
 `$ cd Fiore`
 `$ npm install`
 `$ npm start`
