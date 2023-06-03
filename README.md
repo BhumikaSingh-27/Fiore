@@ -10,7 +10,9 @@ An E-commerce website for elegant flowers
 `$ cd Fiore`
 `$ npm install`
 `$ npm start`
-
+``` 
+sedf
+```
 ## Features -
 
 - Landing page with a list of featured categories
