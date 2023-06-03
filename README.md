@@ -40,4 +40,5 @@ $ npm start
 - React Toastify
 
 ##  Video -
-![demo video]([https://res.cloudinary.com/dgoldjr3g/image/upload/v1685258825/NegProjects/logo_xx4spr.jpg](https://www.loom.com/share/e3e72836c8ed4ea1ab32594e0dedcd3f))
+https://github.com/BhumikaSingh-27/Fiore/assets/100286699/b5fdd613-5957-4dbd-afeb-9434199eae36
+
