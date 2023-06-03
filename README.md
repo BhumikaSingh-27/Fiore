@@ -1,19 +1,15 @@
-
 ![Fiore Logo](https://res.cloudinary.com/dgoldjr3g/image/upload/v1685258825/NegProjects/logo_xx4spr.jpg)
-# Fiore ![logo](https://res.cloudinary.com/dgoldjr3g/image/upload/v1685259140/NegProjects/E-commerce/logo1_pskkes.jpg)
 
+# Fiore ![logo](https://res.cloudinary.com/dgoldjr3g/image/upload/v1685259140/NegProjects/E-commerce/logo1_pskkes.jpg)
 
 An E-commerce website for elegant flowers
 
-
 ## How to install and run locally?
 
-`$ git clone https://github.com/BhumikaSingh-27/Fiore.git`
-`$ cd Fiore`
-`$ npm install`
-`$ npm start`
-
-
+`` javascript $ git clone https://github.com/BhumikaSingh-27/Fiore.git`
+$ cd Fiore`
+$ npm install
+$ npm start ``
 
 ## Features -
 
@@ -28,14 +24,12 @@ An E-commerce website for elegant flowers
 - Order management
 - Checkout page
 - Authentication
-    - User Login
-    - User Signup
-    - logout
-- Loading and Alerts via Toast 
+  - User Login
+  - User Signup
+  - logout
+- Loading and Alerts via Toast
 
-
-
-##  Built with -
+## Built with -
 
 - React JS
 - React Context API + useReducer
@@ -44,4 +38,3 @@ An E-commerce website for elegant flowers
 - Font Awesome Icons
 - mockBee backend
 - React Toastify
-
