@@ -16,6 +16,7 @@ import { AuthWrapper } from "./components/Authenticate/AuthWrapper";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./pages/Home/components/Footer";
 import { ToastContainer } from "react-toastify";
+import OrderSummary from "./pages/Checkout/OrderSummary";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         ></Route>
         <Route path="/addressform" element={<AddressForm />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="/ordersummary" element={<OrderSummary />}></Route>
       </Routes>
 
       <footer>

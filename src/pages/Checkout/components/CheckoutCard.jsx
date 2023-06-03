@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import "./Checkout.css";
 import { DataContext } from "../../../contexts/DataContext";
 import { AddressContext } from "../../../contexts/AddressContext";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutCard = () => {
   const { state, totalPrice, discount } = useContext(DataContext);
   const { checkoutAddress } = useContext(AddressContext);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -29,15 +31,6 @@ const CheckoutCard = () => {
               <p>{ele.qty}</p>
             </div>
           ))}
-
-          {/* <p>Book Name</p>
-            <p>1</p>
-          </div>
-          <div className="checkout-flex">
-            <p>Book Name</p>
-            <p>1</p>
-          </div> */}
-          {/*this block  */}
         </div>
         <hr />
         <h3>PRICE DETAILS</h3>
@@ -70,7 +63,12 @@ const CheckoutCard = () => {
               {checkoutAddress}
             </div>
           </div>
-          <button className="add-btn checkout">Place order</button>
+          <button
+            className="add-btn checkout"
+            onClick={() => navigate("/ordersummary")}
+          >
+            Place order
+          </button>
         </div>
       </div>
     </>
