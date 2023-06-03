@@ -8,7 +8,7 @@ An E-commerce website for elegant flowers
 
 ``` 
 $ git clone https://github.com/BhumikaSingh-27/Fiore.git
-$ cd Fiore`
+$ cd Fiore
 $ npm install
 $ npm start
 ```
@@ -28,7 +28,7 @@ $ npm start
   - User Login
   - User Signup
   - logout
-- Loading and Alerts via Toast
+- Loading and Alerts 
 
 ## Built with -
 
@@ -39,3 +39,6 @@ $ npm start
 - Font Awesome Icons
 - mockBee backend
 - React Toastify
+
+##  Video -
+
