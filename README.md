@@ -1,6 +1,6 @@
 ![Fiore Logo](https://res.cloudinary.com/dgoldjr3g/image/upload/v1685258825/NegProjects/logo_xx4spr.jpg)
 
-###### An E-commerce website for elegant flowers
+#### An E-commerce website for elegant flowers
 > Make someone feel special today!
 
 ## How to install and run locally?
