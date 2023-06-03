@@ -1,16 +1,16 @@
 ![Fiore Logo](https://res.cloudinary.com/dgoldjr3g/image/upload/v1685258825/NegProjects/logo_xx4spr.jpg)
 
-# Fiore ![logo](https://res.cloudinary.com/dgoldjr3g/image/upload/v1685259140/NegProjects/E-commerce/logo1_pskkes.jpg)
-
-An E-commerce website for elegant flowers
+#### An E-commerce website for elegant flowers
+> Make someone feel special today!
 
 ## How to install and run locally?
 
-`` javascript $ git clone https://github.com/BhumikaSingh-27/Fiore.git`
-$ cd Fiore`
+``` 
+$ git clone https://github.com/BhumikaSingh-27/Fiore.git
+$ cd Fiore
 $ npm install
-$ npm start ``
-
+$ npm start
+```
 ## Features -
 
 - Landing page with a list of featured categories
@@ -27,7 +27,7 @@ $ npm start ``
   - User Login
   - User Signup
   - logout
-- Loading and Alerts via Toast
+- Loading and Alerts 
 
 ## Built with -
 
@@ -38,3 +38,6 @@ $ npm start ``
 - Font Awesome Icons
 - mockBee backend
 - React Toastify
+
+##  Video -
+
