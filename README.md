@@ -2,7 +2,6 @@
 
 ###### An E-commerce website for elegant flowers
 > Make someone feel special today!
----
 
 ## How to install and run locally?
 
