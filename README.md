@@ -9,7 +9,7 @@ An E-commerce website for elegant flowers
 ```$ git clone https://github.com/BhumikaSingh-27/Fiore.git
 $ cd Fiore
 $ npm install
-$ npm start```
+$ npm start
 
 ## Features -
 
