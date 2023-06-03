@@ -61,11 +61,13 @@ const Product = () => {
                 <Circles color={"red"} />
               </div>
             )}
-            {finalFilteredData.length ? (
-              finalFilteredData.map((flower) => <ProductCard flower={flower} />)
-            ) : (
-              <h2>Sorry, no products found!🙁</h2>
-            )}
+            {finalFilteredData.map((flower) => (
+              <ProductCard flower={flower} />
+            ))}
+            {finalFilteredData.length === 0 &&
+              state.productData.length !== 0 && (
+                <h2>Sorry, no products found!🙁</h2>
+              )}
           </div>
         </div>
         {/* <footer>
