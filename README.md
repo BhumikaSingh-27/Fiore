@@ -40,4 +40,5 @@ $ npm start
 - React Toastify
 
 ##  Video -
+https://github.com/BhumikaSingh-27/Fiore/assets/100286699/b5fdd613-5957-4dbd-afeb-9434199eae36
 
