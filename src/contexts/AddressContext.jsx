@@ -40,11 +40,11 @@ export const AddressContextProvider = ({ children }) => {
   const updateAddress = () => {
     setNewAddress({
       name: "Bhumika Singh",
-      houseNo: "savita sadan, road no 18/4A",
-      city: "Patna",
-      state: "Bihar",
+      houseNo: "ABC, road no XYZ/4A",
+      city: "NEW CITY",
+      state: "NEW DELHI",
       country: "India",
-      postalCode: "800024",
+      postalCode: "600034",
       mobile: "7999899345",
     });
   };
