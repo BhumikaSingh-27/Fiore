@@ -1,8 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../contexts/DataContext";
 
 const OrderSummary = () => {
-  const { state, discount } = useContext(DataContext);
+  const { state, dispatch, removeItemFromCart } = useContext(DataContext);
+  const [cartDisplayData, setCartDisplayData] = useState([]);
+
+  const discount = cartDisplayData.reduce(
+    (acc, cur) => cur.discountedPrice * cur.qty + acc,
+    0
+  );
+
+  const clearCartData = () => {
+    state.cartData.forEach((obj) => removeItemFromCart(obj._id));
+  };
+  useEffect(() => {
+    setCartDisplayData(state.cartData);
+    clearCartData();
+    dispatch({ type: "CLEAR_CART" });
+  }, []);
+
   return (
     <div className="order-summary-body">
       <div className="order-summary-main">
@@ -17,7 +33,7 @@ const OrderSummary = () => {
             <h1>Congratulations, your order is placed!</h1>
 
             <div>
-              {state?.cartData.map((item, index) => (
+              {cartDisplayData?.map((item, index) => (
                 <div key={index} className="orders">
                   {" "}
                   <img
@@ -36,13 +52,19 @@ const OrderSummary = () => {
               <h3>Total Amount: &#x20B9; {discount}</h3>
             </div>
           </div>
-          
         </div>
         <h1>
-            <i>
-              Thank you for shopping with <span>Foire <img src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1685259140/NegProjects/E-commerce/logo1_pskkes.jpg" alt="logo" /></span>
-            </i>
-          </h1>
+          <i>
+            Thank you for shopping with{" "}
+            <span>
+              Foire{" "}
+              <img
+                src="https://res.cloudinary.com/dgoldjr3g/image/upload/v1685259140/NegProjects/E-commerce/logo1_pskkes.jpg"
+                alt="logo"
+              />
+            </span>
+          </i>
+        </h1>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { AddressContext } from "../../../contexts/AddressContext";
 import { useNavigate } from "react-router-dom";
 
 const CheckoutCard = () => {
-  const { state, totalPrice, discount } = useContext(DataContext);
+  const { state, totalPrice, discount, dispatch } = useContext(DataContext);
   const { checkoutAddress } = useContext(AddressContext);
   const navigate = useNavigate();
 
@@ -65,7 +65,10 @@ const CheckoutCard = () => {
           </div>
           <button
             className="add-btn checkout"
-            onClick={() => navigate("/ordersummary")}
+            onClick={() => {
+              navigate("/ordersummary");
+              
+            }}
           >
             Place order
           </button>

@@ -152,6 +152,10 @@ export const reducerFn = (state, action) => {
     case "ADD_TO_WISHLIST": {
       return { ...state, wishlistData: action.payload };
     }
+
+    case "CLEAR_CART" : {
+      return {...state,cartData:[]}
+    }
     default:
       return state;
   }
