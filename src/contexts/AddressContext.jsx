@@ -24,11 +24,11 @@ export const AddressContextProvider = ({ children }) => {
     {
       id: 1,
       name: "Bhumika Singh",
-      houseNo: "savita sadan, road no 18/4A",
-      city: "Patna",
-      state: "Bihar",
+      houseNo: "Silver Prestige, Koramangala",
+      city: "Bengaluru",
+      state: "Karnataka",
       country: "India",
-      postalCode: "800024",
+      postalCode: "600034",
       mobile: "7999899345",
     },
   ];
@@ -40,9 +40,9 @@ export const AddressContextProvider = ({ children }) => {
   const updateAddress = () => {
     setNewAddress({
       name: "Bhumika Singh",
-      houseNo: "ABC, road no XYZ/4A",
-      city: "NEW CITY",
-      state: "NEW DELHI",
+      houseNo: "Silver Prestige, Koramangala",
+      city: "Bengaluru",
+      state: "Karnataka",
       country: "India",
       postalCode: "600034",
       mobile: "7999899345",
