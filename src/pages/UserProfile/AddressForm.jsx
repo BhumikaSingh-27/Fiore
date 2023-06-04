@@ -96,7 +96,7 @@ const AddressForm = () => {
           <input
             type="text"
             placeholder="Enter State"
-            value={newAddress.stateName}
+            value={newAddress.state}
             onChange={(e) =>
               setNewAddress({ ...newAddress, stateName: e.target.value })
             }
