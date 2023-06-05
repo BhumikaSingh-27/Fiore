@@ -6,8 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddressForm = () => {
-  const { newAddress, setNewAddress, setUserAdd, userAdd, userInfo,updateAddress } =
-    useContext(AddressContext);
+  const {
+    newAddress,
+    setNewAddress,
+    setUserAdd,
+    userAdd,
+    userInfo,
+    updateAddress,
+  } = useContext(AddressContext);
 
   const navigate = useNavigate();
 
@@ -63,7 +69,7 @@ const AddressForm = () => {
     }
     navigate("/profile");
   };
-   
+
   return (
     <div className="form-container">
       <div className="form-address">
@@ -98,7 +104,7 @@ const AddressForm = () => {
             placeholder="Enter State"
             value={newAddress.state}
             onChange={(e) =>
-              setNewAddress({ ...newAddress, stateName: e.target.value })
+              setNewAddress({ ...newAddress, state: e.target.value })
             }
           />
           <input

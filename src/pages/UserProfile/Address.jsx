@@ -19,9 +19,9 @@ const Address = () => {
   };
 
   const removeAddress = (addressId) => {
-    console.log(userAddress)
+    console.log(userAddress);
     const address = userAddress.filter((ele) => ele.id !== addressId);
-    setUserAdd(prev=>({...prev,[userKey]:address}))
+    setUserAdd((prev) => ({ ...prev, [userKey]: address }));
     console.log(address);
   };
 
@@ -31,7 +31,7 @@ const Address = () => {
       name: null,
       houseNo: null,
       city: null,
-      stateName: null,
+      state: null,
       country: null,
       postalCode: null,
       mobile: null,
@@ -47,22 +47,13 @@ const Address = () => {
         </div>
 
         {userAddress?.map(
-          ({
-            id,
-            name,
-            houseNo,
-            city,
-            stateName,
-            country,
-            postalCode,
-            mobile,
-          }) => {
+          ({ id, name, houseNo, city, state, country, postalCode, mobile }) => {
             return (
               <div key={id} className="address-body">
                 <div className="address-body">
                   <h4>{name}</h4>
                   <p style={{ textAlign: "left" }}>
-                    {houseNo},{city},{stateName},{country}.<br />
+                    {houseNo},{city},{state},{country}.<br />
                     Pincode: {postalCode}.
                     <br />
                     mobile:{mobile}

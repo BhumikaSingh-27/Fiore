@@ -14,7 +14,7 @@ export const AddressContextProvider = ({ children }) => {
     name: null,
     houseNo: null,
     city: null,
-    stateName: null,
+    state: null,
     country: null,
     postalCode: null,
     mobile: null,
