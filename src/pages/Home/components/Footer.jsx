@@ -28,18 +28,24 @@ const Footer = () => {
             <a
               className="footer-link"
               href="https://twitter.com/BhumikaSingh27"
+              target="_blank"
+              rel="noreferrer"
             >
               <FaTwitter /> Twitter
             </a>
             <a
               className="footer-link"
               href="https://github.com/BhumikaSingh-27"
+              target="_blank"
+              rel="noreferrer"
             >
               <FaGithub /> Github
             </a>
             <a
               className="footer-link"
               href="https://www.linkedin.com/in/bhumika-singh-594004184/"
+              target="_blank"
+              rel="noreferrer"
             >
               <FaLinkedin /> LinkedIn
             </a>
@@ -49,8 +55,13 @@ const Footer = () => {
       <div className="footer-text">
         {" "}
         @developed by{" "}
-        <a className="footer-link" href="https://bhumikawebsite.netlify.app/">
-           bhumika
+        <a
+          className="footer-link"
+          href="https://bhumikawebsite.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          bhumika
         </a>
       </div>
     </div>
