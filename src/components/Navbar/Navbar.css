@@ -1,3 +1,5 @@
+
+@media (min-width: 720px) {
 .not-a-link {
     text-decoration: none;
 }
@@ -115,4 +117,5 @@
 
 .nav-counter-container {
     position: relative;
+}
 }
